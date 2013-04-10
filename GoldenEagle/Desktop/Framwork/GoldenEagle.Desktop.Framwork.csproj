@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37F00547-76DA-4050-AA38-DBB0607FD6D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldenEagle.Desktop.Framwork</RootNamespace>
+    <AssemblyName>GoldenEagle.Desktop.Framwork</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AvalonDock">
+      <HintPath>..\..\ReferencedAssemblies\AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes.Aero">
+      <HintPath>..\..\ReferencedAssemblies\AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes.Expression">
+      <HintPath>..\..\ReferencedAssemblies\AvalonDock.Themes.Expression.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes.Metro">
+      <HintPath>..\..\ReferencedAssemblies\AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes.VS2010">
+      <HintPath>..\..\ReferencedAssemblies\AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Core">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Extensions.Controls">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Extensions.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Extensions.Prism">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Extensions.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.MVVM">
+      <HintPath>..\..\ReferencedAssemblies\Catel.MVVM.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluent">
+      <HintPath>..\..\ReferencedAssemblies\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Obsolete">
+      <HintPath>..\..\ReferencedAssemblies\Obsolete.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\ReferencedAssemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\AvalonDockHelper.cs" />
+    <Compile Include="Helpers\FluentRibbonHelper.cs" />
+    <Compile Include="Helpers\LayoutInitializer.cs" />
+    <Compile Include="Models\Interface\IRibbonItem.cs" />
+    <Compile Include="Models\ModuleInfo.cs" />
+    <Compile Include="Models\RibbonItem.cs" />
+    <Compile Include="Modules\ModuleBase.cs" />
+    <Compile Include="OrchestraBootstrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Interfaces\IOrchestraService.cs" />
+    <Compile Include="Services\Interfaces\IRibbonService.cs" />
+    <Compile Include="Services\OrchestraService.cs" />
+    <Compile Include="Services\RibbonService.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DocumentView.cs" />
+    <Compile Include="Views\Interfaces\IDocumentView.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ActionAccept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ActionAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ActionCancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ActionRefresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ActionRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ArrowRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FileOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FileSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ValidationError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ValidationInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ValidationWarning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

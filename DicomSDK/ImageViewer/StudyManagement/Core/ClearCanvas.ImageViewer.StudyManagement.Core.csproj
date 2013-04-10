@@ -55,7 +55,7 @@
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.2.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\ReferencedAssemblies\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\GoldenEagle\ReferencedAssemblies\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -188,20 +188,6 @@
     </Compile>
     <Compile Include="WorkItemProcessor\WorkItemServiceSettings.cs" />
     <Compile Include="WorkItemProcessor\WorkItemStatusProxy.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\ClearCanvas.Common.csproj">
-      <Project>{F6EAD428-E6CF-4DF6-B2F3-D33D532C5343}</Project>
-      <Name>ClearCanvas.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Dicom\ClearCanvas.Dicom.csproj">
-      <Project>{AD9ECE2B-8268-4115-8DC8-860FBD011FFF}</Project>
-      <Name>ClearCanvas.Dicom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\ClearCanvas.ImageViewer.Common.csproj">
-      <Project>{FEFD73C5-8541-47D2-BBDB-FF61DEA28291}</Project>
-      <Name>ClearCanvas.ImageViewer.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
