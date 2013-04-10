@@ -22,7 +22,7 @@
 
 #endregion
 
-using ClearCanvas.ImageViewer.BaseTools;
+
 
 namespace ClearCanvas.ImageViewer.StudyManagement
 {

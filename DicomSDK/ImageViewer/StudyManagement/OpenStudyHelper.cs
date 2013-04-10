@@ -24,7 +24,6 @@
 
 using System;
 using System.Collections.Generic;
-using ClearCanvas.Desktop;
 using ClearCanvas.Common;
 using ClearCanvas.Common.Utilities;
 using ClearCanvas.ImageViewer.Common;

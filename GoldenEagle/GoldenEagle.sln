@@ -28,10 +28,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenEagle.Desktop.Executable", "Desktop\Executable\GoldenEagle.Desktop.Executable.csproj", "{8DAB28B5-30CE-4B4F-9659-6B12B895D20B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C296124F-7F0A-4CA7-B87F-4F36056C9DB0}"
-	ProjectSection(SolutionItems) = preProject
-		tools\Fody\Fody.targets = tools\Fody\Fody.targets
-		tools\Pepita\PepitaGet.targets = tools\Pepita\PepitaGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenEagle.Desktop.Framwork", "Desktop\Framwork\GoldenEagle.Desktop.Framwork.csproj", "{37F00547-76DA-4050-AA38-DBB0607FD6D2}"
 EndProject

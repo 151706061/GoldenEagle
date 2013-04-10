@@ -36,6 +36,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Catel.Core">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Extensions.Controls">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Extensions.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Extensions.Prism">
+      <HintPath>..\..\ReferencedAssemblies\Catel.Extensions.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.MVVM">
+      <HintPath>..\..\ReferencedAssemblies\Catel.MVVM.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,16 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -91,6 +98,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framwork\GoldenEagle.Desktop.Framwork.csproj">
+      <Project>{37F00547-76DA-4050-AA38-DBB0607FD6D2}</Project>
+      <Name>GoldenEagle.Desktop.Framwork</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

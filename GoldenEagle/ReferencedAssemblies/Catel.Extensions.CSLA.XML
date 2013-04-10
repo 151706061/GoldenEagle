@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.CSLA</name>
+    </assembly>
+    <members>
+        <member name="T:Catel.ModuleInitializer">
+            <summary>
+            Class that gets called as soon as the module is loaded.
+            </summary>
+            <remarks>
+            This is made possible thanks to Fody.
+            </remarks>
+        </member>
+        <member name="M:Catel.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:Catel.MVVM.CSLA.IViewModel">
+            <summary>
+            View model for CSLA view models.
+            </summary>
+        </member>
+        <member name="T:Catel.MVVM.CSLA.ViewModelBase`1">
+            <summary>
+            View model base for CSLA view models with support for Catel.
+            </summary>
+            <typeparam name="TModel">The type of the T model.</typeparam>
+        </member>
+        <member name="F:Catel.MVVM.CSLA.ViewModelBase`1._isViewModelInitialized">
+            <summary>
+            Value indicating whether the view model is already initialized via a call to <see cref="M:Catel.MVVM.IViewModel.InitializeViewModel"/>.
+            </summary>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.#ctor">
+            <summary>
+            Initializes the view model.
+            </summary>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.OnError(System.Exception)">
+            <summary>
+            Uses the Catels MessageService to display Csla errors.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#InitializeViewModel">
+            <summary>
+            Initializes the view model. Normally the initialization is done in the constructor, but sometimes this must be delayed
+            to a state where the associated UI element (user control, window, ...) is actually loaded.
+            <para />
+            This method is called as soon as the associated UI element is loaded.
+            </summary>
+            <remarks>It's not recommended to implement the initialization of properties in this method. The initialization of properties
+            should be done in the constructor. This method should be used to start the retrieval of data from a web service or something
+            similar.
+            <para />
+            During unit tests, it is recommended to manually call this method because there is no external container calling this method.</remarks>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#ValidateViewModel(System.Boolean,System.Boolean)">
+            <summary>
+            Validates the specified notify changed properties only.
+            </summary>
+            <param name="force">if set to <c>true</c>, a validation is forced (even if the object knows it is already validated).</param><param name="notifyChangedPropertiesOnly">if set to <c>true</c> only the properties for which the warnings or errors have been changed
+                        will be updated via <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>; otherwise all the properties that
+                        had warnings or errors but not anymore and properties still containing warnings or errors will be updated.</param>
+            <returns>
+            <c>true</c> if validation succeeds; otherwise <c>false</c>.
+            </returns>
+            <remarks>
+            This method is useful when the view model is initialized before the window, and therefore WPF does not update the errors and warnings.
+            </remarks>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#CancelViewModel">
+            <summary>
+            Cancels the editing of the data.
+            </summary>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#CancelAndCloseViewModel">
+            <summary>
+            Cancels the editing of the data, but also closes the view model in the same call.
+            </summary>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#SaveViewModel">
+            <summary>
+            Saves the data.
+            </summary>
+            <returns>
+            <c>true</c> if successful; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#SaveAndCloseViewModel">
+            <summary>
+            Saves the data, but also closes the view model in the same call if the save succeeds.
+            </summary>
+            <returns>
+            <c>true</c> if successful; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#CloseViewModel(System.Nullable{System.Boolean})">
+            <summary>
+            Closes this instance. Always called after the <see cref="M:Catel.MVVM.IViewModel.CancelViewModel"/> of <see cref="M:Catel.MVVM.IViewModel.SaveViewModel"/> method.
+            </summary>
+            <param name="result">The result to pass to the view. This will, for example, be used as <c>DialogResult</c>.</param>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.Initialize">
+            <summary>
+            Initializes the view model. Normally the initialization is done in the constructor, but sometimes this must be delayed
+                        to a state where the associated UI element (user control, window, ...) is actually loaded.
+            <para/>
+                        This method is called as soon as the associated UI element is loaded.
+            </summary>
+            <remarks>
+            It's not recommended to implement the initialization of properties in this method. The initialization of properties
+                        should be done in the constructor. This method should be used to start the retrieval of data from a web service or something
+                        similar.
+            <para/>
+                        During unit tests, it is recommended to manually call this method because there is no external container calling this method.
+            </remarks>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.GetService(System.Type)">
+            <summary>
+            Gets the service of the specified type. Keep in mind that injected services always take precedence
+            over services registered in the <see cref="P:Catel.MVVM.CSLA.ViewModelBase`1.ServiceLocator"/>.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>Service object or <c>null</c> if the service is not found.</returns>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.GetService``1">
+            <summary>
+            Gets the service of the specified type.
+            </summary>
+            <typeparam name="T">Type of the service.</typeparam>
+            <returns>Service object or <c>null</c> if the service is not found.</returns>
+        </member>
+        <member name="M:Catel.MVVM.CSLA.ViewModelBase`1.RegisterViewModelServices(Catel.IoC.IServiceLocator)">
+            <summary>
+            Registers the default view model services.
+            </summary>
+            <param name="serviceLocator">The service locator.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="serviceLocator"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.ServiceLocator">
+            <summary>
+            Gets the service locator that provides all the implementations for interfaces required by the view-model.
+            </summary>
+            <value>The service locator.</value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.ViewModelManager">
+            <summary>
+            Gets the view model manager.
+            </summary>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.CatelViewModel">
+            <summary>
+            Returns the Catel view model interface of this view model.
+            </summary>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.UniqueIdentifier">
+            <summary>
+            Gets the unique identifier of the view model.
+            </summary>
+            <value>The unique identifier.</value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.ViewModelConstructionTime">
+            <summary>
+            Gets the view model construction time, which is used to get unique instances of view models.
+            </summary>
+            <value>The view model construction time.</value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.IsClosed">
+            <summary>
+            Gets a value indicating whether this instance is closed. If a view model is closed, calling
+            <see cref="M:Catel.MVVM.IViewModel.CancelViewModel"/>, <see cref="M:Catel.MVVM.IViewModel.SaveViewModel"/> or 
+            <see cref="M:Catel.MVVM.IViewModel.CloseViewModel(System.Nullable{System.Boolean})"/> will have no effect.
+            </summary>
+            <value><c>true</c> if the view model is closed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#HasErrors">
+            <summary>
+            Gets a value indicating whether this instance has errors.
+            </summary>
+            <value>
+            <c>true</c> if this instance has errors; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#HasWarnings">
+            <summary>
+            Gets a value indicating whether this instance has warnings.
+            </summary>
+            <value>
+            <c>true</c> if this instance has warnings; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#HasDirtyModel">
+            <summary>
+            Gets a value indicating whether this instance has a dirty model.
+            </summary>
+            <value>
+            <c>true</c> if this instance has a dirty model; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Catel.MVVM.CSLA.ViewModelBase`1.Title">
+            <summary>
+            Gets the title of the view model.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Initialized">
+            <summary>
+            Occurs when a command on the view model has been executed.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#CommandExecuted">
+            <summary>
+            Occurs when a command on the view model has been executed.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Saving">
+            <summary>
+            Occurs when the view model is about to be saved.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Saved">
+            <summary>
+            Occurs when the view model is saved successfully.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Canceling">
+            <summary>
+            Occurs when the view model is about to be canceled.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Canceled">
+            <summary>
+            Occurrs when the view model is canceled.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Closing">
+            <summary>
+            Occurs when the view model is being closed.
+            </summary>
+        </member>
+        <member name="E:Catel.MVVM.CSLA.ViewModelBase`1.Catel#MVVM#IViewModel#Closed">
+            <summary>
+            Occurs when the view model is being closed.
+            </summary>
+        </member>
+    </members>
+</doc>

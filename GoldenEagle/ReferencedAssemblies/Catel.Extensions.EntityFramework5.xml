@@ -1,0 +1,685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.EntityFramework5</name>
+    </assembly>
+    <members>
+        <member name="T:Catel.Data.ConnectionStringManager">
+            <summary>
+            Default connection string manager.
+            <para/>
+            This interface is used in combination with the <see cref="T:Catel.Data.DbContextManager`1"/>.
+            </summary>
+        </member>
+        <member name="T:Catel.Data.IConnectionStringManager">
+            <summary>
+            Interface defining the connection string manager.
+            <para/>
+            This interface is used in combination with the <see cref="T:Catel.Data.DbContextManager`1"/>.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.IConnectionStringManager.GetConnectionString(System.Type,System.String,System.String)">
+            <summary>
+            Gets the connection string for the specified database.
+            </summary>
+            <param name="contextType">The type of the context.</param>
+            <param name="database">The database.</param>
+            <param name="label">The label.</param>
+            <returns>The connection string.</returns>
+        </member>
+        <member name="M:Catel.Data.ConnectionStringManager.GetConnectionString(System.Type,System.String,System.String)">
+            <summary>
+            Gets the connection string for the specified database.
+            </summary>
+            <param name="contextType">The type of the context.</param>
+            <param name="database">The database.</param>
+            <param name="label">The label.</param>
+            <returns>The connection string or <c>null</c> if the connection string cannot be determined.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="contextType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Data.DbContextManagerHelper">
+            <summary>
+            Helper class for the <see cref="T:Catel.Data.DbContextManager`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Catel.Data.DbContextManagerHelper"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.CreateDbContextForHttpContext(System.Type)">
+            <summary>
+            Creates the db context for the specified http context.
+            </summary>
+            <param name="dbContextType">Type of the db context.</param>
+            <returns>The created <see cref="T:Catel.Data.DbContextManager`1"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContextType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.CreateDbContextForHttpContext``1">
+            <summary>
+            Creates the db context for the specified http context.
+            </summary>
+            <typeparam name="TDbContext">The type of the db context.</typeparam>
+            <returns>The created <see cref="T:Catel.Data.DbContextManager`1"/>.</returns>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.GetDbContextForHttpContext``1">
+            <summary>
+            Gets the db context for the specified http context.
+            </summary>
+            <typeparam name="TDbContext">The type of the db context.</typeparam>
+            <returns>The <see cref="T:Catel.Data.DbContextManager`1"/> or <c>null</c> if no context was available.</returns>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.DisposeDbContextForHttpContext(System.Type)">
+            <summary>
+            Disposes the db context for the specified http context.
+            </summary>
+            <param name="dbContextType">Type of the db context.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContextType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.DisposeDbContextForHttpContext``1">
+            <summary>
+            Disposes the db context for the specified http context.
+            </summary>
+            <typeparam name="TDbContext">The type of the T db context.</typeparam>
+        </member>
+        <member name="M:Catel.Data.DbContextManagerHelper.GetDbContextKey``1">
+            <summary>
+            Gets the db context key to be used in an http context.
+            </summary>
+            <typeparam name="TDbContext">The type of the db context.</typeparam>
+            <returns>The context key.</returns>
+        </member>
+        <member name="T:Catel.Data.EfConnectionStringHelper">
+            <summary>
+            The entity framework connection string helper.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.EfConnectionStringHelper.GetEntityFrameworkConnectionString(System.Type,System.String)">
+            <summary>
+            Gets the entity framework connection string.
+            </summary>
+            <param name="dbContextType">Type of the db context.</param>
+            <param name="connectionString">The connection string.</param>
+            <returns>The entity framework connection string.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContextType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="connectionString"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="T:Catel.Data.IUnitOfWork">
+            <summary>
+            Interface defining a unit of work.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.IUnitOfWork.GetRepository``1">
+            <summary>
+            Gets the repository that is created specificially for this unit of work.
+            <para/>
+            Note that the following conditions must be met: <br/>
+            <list type="number">
+            <item>
+            <description>
+            The container must be registered in the <see cref="T:Catel.IoC.ServiceLocator"/> as <see cref="F:Catel.IoC.RegistrationType.Transient"/> type. If the
+            repository is declared as non-transient, it will be instantiated as new instance anyway.
+            </description>
+            </item>
+            <item>
+            <description>
+            The repository must have a constructor accepting a <see cref="T:System.Data.Entity.DbContext"/> instance.
+            </description>
+            </item>
+            </list>
+            </summary>
+            <typeparam name="TEntityRepository">The type of the entity repository.</typeparam>
+            <returns>The entity repository.</returns>
+            <exception cref="T:System.NotSupportedException">The specified repository type cannot be found.</exception>
+        </member>
+        <member name="M:Catel.Data.IUnitOfWork.SaveChanges(System.Data.Objects.SaveOptions)">
+            <summary>
+            Saves the changes inside the unit of work.
+            </summary>
+            <param name="saveOptions">The save options.</param>
+        </member>
+        <member name="M:Catel.Data.IUnitOfWork.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begins a new transaction on the unit of work.
+            </summary>
+            <param name="isolationLevel">The isolation level.</param>
+        </member>
+        <member name="M:Catel.Data.IUnitOfWork.RollBackTransaction">
+            <summary>
+            Rolls back all the changes inside a transaction.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.IUnitOfWork.CommitTransaction">
+            <summary>
+            Commits all the changes inside a transaction.
+            </summary>
+        </member>
+        <member name="P:Catel.Data.IUnitOfWork.IsInTransaction">
+            <summary>
+            Gets a value indicating whether this instance is currently in a transaction.
+            </summary>
+            <value><c>true</c> if this instance is currently in a transaction; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Catel.Data.UnitOfWork">
+            <summary>
+            Implementation of the unit of work pattern for entity framework.
+            </summary>
+        </member>
+        <member name="F:Catel.Data.UnitOfWork.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.#ctor(System.Data.Entity.DbContext,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.UnitOfWork"/> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="tag">The tag to uniquely identify this unit of work. If <c>null</c>, a unique id will be generated.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="context"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begins a new transaction on the unit of work.
+            </summary>
+            <param name="isolationLevel">The isolation level.</param>
+            <exception cref="T:System.InvalidOperationException">A transaction is already running.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.RollBackTransaction">
+            <summary>
+            Rolls back all the changes inside a transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">No transaction is currently running.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.CommitTransaction">
+            <summary>
+            Commits all the changes inside a transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">No transaction is currently running.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.GetRepository``1">
+            <summary>
+            Gets the repository that is created specificially for this unit of work.
+            <para/>
+            Note that the following conditions must be met: <br/>
+            <list type="number">
+            <item>
+            <description>
+            The container must be registered in the <see cref="T:Catel.IoC.ServiceLocator"/> as <see cref="F:Catel.IoC.RegistrationType.Transient"/> type. If the
+            repository is declared as non-transient, it will be instantiated as new instance anyway.
+            </description>
+            </item>
+            <item>
+            <description>
+            The repository must have a constructor accepting a <see cref="T:System.Data.Entity.DbContext"/> instance.
+            </description>
+            </item>
+            </list>
+            </summary>
+            <typeparam name="TEntityRepository">The type of the entity repository.</typeparam>
+            <returns>The entity repository.</returns>
+            <exception cref="T:System.NotSupportedException">The specified repository type cannot be found.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.SaveChanges(System.Data.Objects.SaveOptions)">
+            <summary>
+            Saves the changes inside the unit of work.
+            </summary>
+            <param name="saveOptions">The save options.</param>
+            <exception cref="T:System.InvalidOperationException">A transaction is running. Call CommitTransaction instead.</exception>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.OnDisposing">
+            <summary>
+            Called when the object is being disposed.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.DisposeDbContext">
+            <summary>
+            Disposes the db context.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.OpenConnection">
+            <summary>
+            Opens the connection to the database.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork.ReleaseTransaction">
+            <summary>
+            Releases the transaction.
+            </summary>
+        </member>
+        <member name="P:Catel.Data.UnitOfWork.IsInTransaction">
+            <summary>
+            Gets a value indicating whether this instance is currently in a transaction.
+            </summary>
+            <value><c>true</c> if this instance is currently in a transaction; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Catel.Data.DbContextManager`1">
+            <summary>
+            Provides an automated way to reuse Entity Framework DbContext objects within the context of a single data portal operation.
+            </summary>
+            <typeparam name="TDbContext">Type of databaseNameOrConnectionStringName DbContext object to use.
+            </typeparam>
+            <remarks>
+            This type stores the object context object in an internal dictionary and uses reference counting through
+            <see cref="T:System.IDisposable"/> to keep the data context object open for reuse by child objects, and to automatically
+            dispose the object when the last consumer has called Dispose.
+            </remarks>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.GetManager">
+            <summary>
+            Gets the ObjectContextManager object for the specified database.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.GetManager(System.String,System.String,System.Data.Entity.Infrastructure.DbCompiledModel)">
+            <summary>
+            Gets the ObjectContextManager object for the specified database.
+            </summary>
+            <param name="databaseNameOrConnectionStringName">
+            The database name or connection string.
+            </param>
+            <param name="label">Label for this context.</param>
+            <param name="model">Database Compiled model.</param>
+            <returns>The ContextManager.</returns>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.GetManager(System.Data.Objects.ObjectContext,System.String)">
+            <summary>
+            Gets the ObjectContextManager object for the specified database.
+            </summary>
+            <param name="context">The ObjectContext to wrap in DbContext.</param>
+            <param name="label">Label for this context.</param>
+            <returns>The ContextManager.</returns>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.GetContextName(System.String,System.String)">
+            <summary>
+            Gets the name of the context.
+            </summary>
+            <param name="databaseNameOrConnectionStringName">The database name or connection string.</param>
+            <param name="label">The label.</param>
+            <returns>The name of the context.</returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="label"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.GetContextLogName(System.String,System.String)">
+            <summary>
+            Gets the name of the context to be used during logging.
+            </summary>
+            <param name="databaseNameOrConnectionStringName">Name of the database name or connection string.</param>
+            <param name="label">The label.</param>
+            <returns>The name of the context for logging purposes.</returns>
+        </member>
+        <member name="M:Catel.Data.DbContextManager`1.Dispose">
+            <summary>
+            Dispose object, dereferencing or disposing the context it is managing.
+            </summary>
+        </member>
+        <member name="P:Catel.Data.DbContextManager`1.DbContext">
+            <summary>
+            Gets the DbContext object.
+            </summary>
+        </member>
+        <member name="P:Catel.Data.DbContextManager`1.RefCount">
+            <summary>
+            Gets the current reference count for this
+            object.
+            </summary>
+        </member>
+        <member name="T:Catel.Data.UnitOfWork`1">
+            <summary>
+            Generic implementation of the <see cref="T:Catel.Data.UnitOfWork"/> which can automatically determine the DbContext type.
+            </summary>
+            <typeparam name="TDbContext">The type of the db context.</typeparam>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.UnitOfWork`1"/> class.
+            </summary>
+            <param name="dbContext">The db context. If <c>null</c>, it will be resolved automatically using the <see cref="T:Catel.Data.DbContextManager`1"/>.</param>
+        </member>
+        <member name="M:Catel.Data.UnitOfWork`1.OnDisposing">
+            <summary>
+            Called when the object is being disposed.
+            </summary>
+        </member>
+        <member name="T:Catel.Data.DbContextExtensions">
+            <summary>
+            Extensions to the <see cref="T:System.Data.Entity.DbContext"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetObjectContext(System.Data.Entity.DbContext)">
+            <summary>
+            Gets the object context from the specified <see cref="T:System.Data.Entity.DbContext"/>.
+            </summary>
+            <param name="dbContext">The db context.</param>
+            <returns>The ObjectContext.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetEntityKey``1(System.Data.Entity.DbContext,System.Object)">
+            <summary>
+            Gets the entity key of the specified entity type in the <see cref="T:System.Data.Entity.DbContext"/>.
+            </summary>
+            <typeparam name="TEntity">The type of the T entity.</typeparam>
+            <param name="dbContext">The db context.</param>
+            <param name="keyValue">The key value.</param>
+            <returns>The entity key.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="keyValue"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetEntityKey(System.Data.Entity.DbContext,System.Type,System.Object)">
+            <summary>
+            Gets the entity key of the specified entity type in the <see cref="T:System.Data.Entity.DbContext"/>.
+            </summary>
+            <param name="dbContext">The db context.</param>
+            <param name="entityType">Type of the entity.</param>
+            <param name="keyValue">The key value.</param>
+            <returns>The entity key.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entityType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="keyValue"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetEntitySetName``1(System.Data.Entity.DbContext)">
+            <summary>
+            Gets the name of the entity set in the <see cref="T:System.Data.Entity.DbContext"/> for the specified entity type.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="dbContext">The db context.</param>
+            <returns>The name of the entity set.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetEntitySetName(System.Data.Entity.DbContext,System.Type)">
+            <summary>
+            Gets the name of the entity set in the <see cref="T:System.Data.Entity.DbContext"/> for the specified entity type.
+            </summary>
+            <param name="dbContext">The db context.</param>
+            <param name="entityType">Type of the entity.</param>
+            <returns>The name of the entity set.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entityType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetFullEntitySetName``1(System.Data.Entity.DbContext)">
+            <summary>
+            Gets the full name of the entity in the <see cref="T:System.Data.Entity.DbContext"/> for the specified entity type.
+            </summary>
+            <typeparam name="TEntity">The type of the T entity.</typeparam>
+            <param name="dbContext">The db context.</param>
+            <returns>The name of the entity.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetFullEntitySetName(System.Data.Entity.DbContext,System.Type)">
+            <summary>
+            Gets the full name of the entity in the <see cref="T:System.Data.Entity.DbContext"/> for the specified entity type.
+            </summary>
+            <param name="dbContext">The db context.</param>
+            <param name="entityType">Type of the entity.</param>
+            <returns>The name of the entity.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entityType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.DbContextExtensions.GetConnectionString(System.Data.Entity.DbContext)">
+            <summary>
+            Gets the connection string currently used by the <see cref="T:System.Data.Entity.DbContext"/>.
+            </summary>
+            <param name="dbContext">The db context.</param>
+            <returns>The connection string.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.ModuleInitializer">
+            <summary>
+            Class that gets called as soon as the module is loaded.
+            </summary>
+            <remarks>
+            This is made possible thanks to Fody.
+            </remarks>
+        </member>
+        <member name="M:Catel.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:Catel.Data.Repositories.IEntityRepository">
+            <summary>
+            Entity repository.
+            </summary>
+        </member>
+        <member name="T:Catel.Data.Repositories.IEntityRepository`1">
+            <summary>
+            Entity repository with a specific key type.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.GetQuery">
+            <summary>
+            Gets the default query for this repository.
+            </summary>
+            <returns>The default queryable for this repository.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.GetQuery(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets a customized query for this repository.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The customized queryable for this repository.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets a single entity based on the matching criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The entity or <c>null</c> if no entity matches the criteria.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.First(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the first entity based on the matching criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The entity or <c>null</c> if no entity matches the criteria.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Add(`0)">
+            <summary>
+            Adds the specified entity to the repository.
+            </summary>
+            <param name="entity">The entity to add.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Attach(`0)">
+            <summary>
+            Attaches the specified entity to the repository.
+            </summary>
+            <param name="entity">The entity to attach.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Delete(`0)">
+            <summary>
+            Deletes the specified entity from the repository.
+            </summary>
+            <param name="entity">The entity to delete.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all entities that match the predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Update(`0)">
+            <summary>
+            Updates changes of the existing entity.
+            <para/>
+            Note that this method does not actually call <c>SaveChanges</c>, but only updates the entity in the repository.
+            </summary>
+            <param name="entity">The entity.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Finds entities based on provided criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>Enumerable of all matching entities.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.GetAll">
+            <summary>
+            Gets all entities available in the repository.
+            <para/>
+            Not that this method executes the default query returned by <see cref="M:Catel.Data.Repositories.IEntityRepository`1.GetQuery"/>/.
+            </summary>
+            <returns>Enumerable of all entities.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Counts entities with the specified criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The number of entities that match the criteria.</returns>
+        </member>
+        <member name="T:Catel.Data.Repositories.IEntityRepository`2">
+            <summary>
+            Entity repository with a specific key type.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TPrimaryKey">The type of the primary key.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Repositories.IEntityRepository`2.GetByKey(`1)">
+            <summary>
+            Gets a specific entity by it's primary key value.
+            </summary>
+            <param name="keyValue">The key value.</param>
+            <returns>The entity or <c>null</c> if the entity could not be found.</returns>
+        </member>
+        <member name="T:Catel.Data.Repositories.EntityRepositoryBase`2">
+            <summary>
+            Base class for entity repositories.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TPrimaryKey">The type of the primary key.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.#ctor(System.Data.Entity.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Repositories.EntityRepositoryBase`2"/> class.
+            </summary>
+            <param name="dbContext">The db context. The caller is responsible for correctly disposing the <see cref="T:System.Data.Entity.DbContext"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dbContext"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.GetByKey(`1)">
+            <summary>
+            Gets a specific entity by it's primary key value.
+            </summary>
+            <param name="keyValue">The key value.</param>
+            <returns>The entity or <c>null</c> if the entity could not be found.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.GetQuery">
+            <summary>
+            Gets the default query for this repository.
+            </summary>
+            <returns>The default queryable for this repository.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.GetQuery(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets a customized query for this repository.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The customized queryable for this repository.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets a single entity based on the matching criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The entity or <c>null</c> if no entity matches the criteria.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.First(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the first entity based on the matching criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The entity or <c>null</c> if no entity matches the criteria.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Add(`0)">
+            <summary>
+            Adds the specified entity to the repository.
+            </summary>
+            <param name="entity">The entity to add.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Attach(`0)">
+            <summary>
+            Attaches the specified entity to the repository.
+            </summary>
+            <param name="entity">The entity to attach.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Delete(`0)">
+            <summary>
+            Deletes the specified entity from the repository.
+            </summary>
+            <param name="entity">The entity to delete.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Deletes all entities that match the predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Update(`0)">
+            <summary>
+            Updates changes of the existing entity.
+            <para/>
+            Note that this method does not actually call <c>SaveChanges</c>, but only updates the entity in the repository.
+            </summary>
+            <param name="entity">The entity.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="entity"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Finds entities based on provided criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>Enumerable of all matching entities.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.GetAll">
+            <summary>
+            Gets all entities available in the repository.
+            <para/>
+            Not that this method executes the default query returned by <see cref="M:Catel.Data.Repositories.EntityRepositoryBase`2.GetQuery"/>/.
+            </summary>
+            <returns>Enumerable of all entities.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Counts entities with the specified criteria.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The number of entities that match the criteria.</returns>
+        </member>
+        <member name="M:Catel.Data.Repositories.EntityRepositoryBase`2.EnsureValidatePredicate(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Ensures a validate predicate.
+            <para />
+            If the <paramref name="predicate"/> is <c>null</c>, this method will create a default predicate which
+            is always true.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>The ensured valid predicate.</returns>
+        </member>
+    </members>
+</doc>

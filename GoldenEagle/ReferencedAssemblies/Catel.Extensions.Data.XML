@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Catel.Data.Expressions.ExpressionExtensions">
+            <summary>
+            Expression extensions class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.Expressions.ExpressionExtensions.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Composes the two specified expressions with the merge action.
+            </summary>
+            <typeparam name="T">The object type inside the expression.</typeparam>
+            <param name="first">The first expression.</param>
+            <param name="second">The second expression.</param>
+            <param name="merge">The merge function.</param>
+            <returns>The composed expression.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="first"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="second"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="merge"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Expressions.ExpressionExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Combines the expressions using the <see cref="M:System.Linq.Expressions.Expression.And(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)"/> method.
+            </summary>
+            <typeparam name="T">The object type inside the expression.</typeparam>
+            <param name="first">The first expression.</param>
+            <param name="second">The second expression.</param>
+            <returns>The composed expression.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="first"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="second"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Expressions.ExpressionExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Combines the expressions using the <see cref="M:System.Linq.Expressions.Expression.Or(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)"/> method.
+            </summary>
+            <typeparam name="T">The object type inside the expression.</typeparam>
+            <param name="first">The first expression.</param>
+            <param name="second">The second expression.</param>
+            <returns>The composed expression.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="first"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="second"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Data.Expressions.ParameterRebinder">
+            <summary>
+            Expression visitor implementation to rebind parameters in linq queries.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.Expressions.ParameterRebinder.#ctor(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Expressions.ParameterRebinder"/> class.
+            </summary>
+            <param name="map">The map. If <c>null</c>, an empty map will be created.</param>
+        </member>
+        <member name="M:Catel.Data.Expressions.ParameterRebinder.ReplaceParameters(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression},System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces the parameters.
+            </summary>
+            <param name="map">The expression mappings dictionary.</param>
+            <param name="exp">The expression.</param>
+            <returns>The expression with the replaced parameters.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="map"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="exp"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Expressions.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Visits the parameter.
+            </summary>
+            <param name="parameterExpression">The parameter expression.</param>
+            <returns>The visited expression.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="parameterExpression"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.ModuleInitializer">
+            <summary>
+            Class that gets called as soon as the module is loaded.
+            </summary>
+            <remarks>
+            This is made possible thanks to Fody.
+            </remarks>
+        </member>
+        <member name="M:Catel.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:Catel.Data.Repositories.CachedRepositoryBase`1">
+            <summary>
+            Extended base class for repositories with caching support.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="T:Catel.Data.Repositories.RepositoryBase`1">
+            <summary>
+            Base class for repositories.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="T:Catel.Data.Repositories.IRepository`1">
+            <summary>
+            Interface defining basic repository behavior.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Repositories.IRepository`1.GetData(System.Action{System.Collections.Generic.IEnumerable{`0}})">
+            <summary>
+            Gets the data. 
+            <para />
+            If the data is already loaded, it will immediately return.
+            <para />
+            If the data is currently loading, the handler will be queued and called as soon as the data is loaded.
+            </summary>
+            <param name="completed">The handler to call when the data is retrieved, can be <c>null</c>.</param>
+        </member>
+        <member name="M:Catel.Data.Repositories.RepositoryBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Repositories.RepositoryBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.Repositories.RepositoryBase`1.GetData(System.Action{System.Collections.Generic.IEnumerable{`0}})">
+            <summary>
+            Gets the data. 
+            <para />
+            If the data is already loaded, it will immediately return.
+            <para />
+            If the data is currently loading, the handler will be queued and called as soon as the data is loaded.
+            </summary>
+            <param name="completed">The handler to call when the data is retrieved, can be <c>null</c>.</param>
+        </member>
+        <member name="T:Catel.Data.Repositories.ICachedRepository`1">
+            <summary>
+            Extended repository with caching support.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="P:Catel.Data.Repositories.ICachedRepository`1.Data">
+            <summary>
+            Gets the current data. If <see cref="P:Catel.Data.Repositories.ICachedRepository`1.IsDataLoaded"/> is <c>true</c>, this property will return <c>null</c>.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.ICachedRepository`1.IsLoadingData">
+            <summary>
+            Gets a value indicating whether this repository is currently loading data.
+            </summary>
+            <value><c>true</c> if this repository is loading data; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.ICachedRepository`1.IsDataLoaded">
+            <summary>
+            Gets a value indicating whether this repository has its data loaded.
+            </summary>
+            <value><c>true</c> if this repository has its data loaded; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.ICachedRepository`1.DataLoadedTimestamp">
+            <summary>
+            Gets the data loaded timestamp.
+            </summary>
+            <value>The data loaded timestamp.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.ICachedRepository`1.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>The expiration.</value>
+        </member>
+        <member name="F:Catel.Data.Repositories.CachedRepositoryBase`1._timer">
+            <summary>
+            The timer that is being executed to invalidate the cache.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Repositories.CachedRepositoryBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.GetData(System.Action{System.Collections.Generic.IEnumerable{`0}})">
+            <summary>
+            Gets the data. 
+            <para />
+            If the data is already loaded, it will immediately return.
+            <para />
+            If the data is currently loading, the handler will be queued and called as soon as the data is loaded.
+            </summary>
+            <param name="completed">The handler to call when the data is retrieved, can be <c>null</c>.</param>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.RetrieveData(System.Action{System.Collections.Generic.IEnumerable{`0}})">
+            <summary>
+            Retrieves the data from the actual data source.
+            <para />
+            This is the only method that needs to be implemented by the deriving type.
+            </summary>
+            <param name="completed">The completed, is never <c>null</c>.</param>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.OnRetrieveDataCompleted(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Called when the retrieval of the items has completed.
+            </summary>
+            <param name="items">The items.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="items"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.OnTimerElapsed(System.Object)">
+            <summary>
+            Called when the timer to clean up the cache elapsed.
+            </summary>
+            <param name="state">The timer state.</param>
+        </member>
+        <member name="M:Catel.Data.Repositories.CachedRepositoryBase`1.CheckForCacheExpiration">
+            <summary>
+            Checks for cache expiration. If the cache is expired, the data will be removed and reloaded.
+            </summary>
+        </member>
+        <member name="P:Catel.Data.Repositories.CachedRepositoryBase`1.Data">
+            <summary>
+            Gets the current data. If <see cref="P:Catel.Data.Repositories.CachedRepositoryBase`1.IsDataLoaded"/> is <c>true</c>, this property will return <c>null</c>.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.CachedRepositoryBase`1.IsLoadingData">
+            <summary>
+            Gets a value indicating whether this repository is currently loading data.
+            </summary>
+            <value><c>true</c> if this repository is loading data; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.CachedRepositoryBase`1.IsDataLoaded">
+            <summary>
+            Gets a value indicating whether this repository has its data loaded.
+            </summary>
+            <value><c>true</c> if this repository has its data loaded; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.CachedRepositoryBase`1.DataLoadedTimestamp">
+            <summary>
+            Gets the data loaded timestamp.
+            </summary>
+            <value>The data loaded timestamp.</value>
+        </member>
+        <member name="P:Catel.Data.Repositories.CachedRepositoryBase`1.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>The expiration.</value>
+        </member>
+        <member name="T:Catel.Data.Specifications.AndSpecification`1">
+            <summary>
+            A specification where the entity must either match the left and right side.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="T:Catel.Data.Specifications.CompositeSpecification`1">
+            <summary>
+            The composite specification which combines two specifications together.
+            <para />
+            Deriving from this class allows customization of how the two specifications must be met.
+            </summary>
+            <typeparam name="TEntity">The type of the T entity.</typeparam>
+        </member>
+        <member name="T:Catel.Data.Specifications.ISpecification`1">
+            <summary>
+            Definition of the default specification pattern logic.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Specifications.ISpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a single entity that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>Entity that matches the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.ISpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a queryable of entities that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>IQueryable of entities that match the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.CompositeSpecification`1.#ctor(Catel.Data.Specifications.Specification{`0},Catel.Data.Specifications.Specification{`0},System.Func{System.Func{`0,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Specifications.CompositeSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">The left side.</param>
+            <param name="rightSide">The right side.</param>
+            <param name="compilePredicateFunction">The compile predicate function.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="leftSide"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="rightSide"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="compilePredicateFunction"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.CompositeSpecification`1.op_Implicit(Catel.Data.Specifications.CompositeSpecification{`0})~System.Func{`0,System.Boolean}">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Catel.Data.Specifications.Specification`1"/> to <see cref="T:System.Func`2"/>.
+            </summary>
+            <param name="specification">The specification.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Catel.Data.Specifications.CompositeSpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a single entity that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>Entity that matches the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.CompositeSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a queryable of entities that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>IQueryable of entities that match the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Data.Specifications.CompositeSpecification`1.LeftSide">
+            <summary>
+            Gets the left side.
+            </summary>
+            <value>The left side.</value>
+        </member>
+        <member name="P:Catel.Data.Specifications.CompositeSpecification`1.RightSide">
+            <summary>
+            Gets the right side.
+            </summary>
+            <value>The right side.</value>
+        </member>
+        <member name="M:Catel.Data.Specifications.AndSpecification`1.#ctor(Catel.Data.Specifications.Specification{`0},Catel.Data.Specifications.Specification{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Specifications.AndSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">The left side.</param>
+            <param name="rightSide">The right side.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="leftSide"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="rightSide"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.AndSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a queryable of entities that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>IQueryable of entities that match the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Data.Specifications.OrSpecification`1">
+            <summary>
+            A specification where the entity must either match the left or right side.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Specifications.OrSpecification`1.#ctor(Catel.Data.Specifications.Specification{`0},Catel.Data.Specifications.Specification{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Specifications.OrSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">The left side.</param>
+            <param name="rightSide">The right side.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="leftSide"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="rightSide"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.OrSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a queryable of entities that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>IQueryable of entities that match the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Data.Specifications.Specification`1">
+            <summary>
+            Generic specification class that serves as base for customized specifications.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Data.Specifications.Specification`1"/> class.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.op_Implicit(Catel.Data.Specifications.Specification{`0})~System.Func{`0,System.Boolean}">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Catel.Data.Specifications.Specification`1"/> to <see cref="T:System.Func`2"/>.
+            </summary>
+            <param name="specification">The specification.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a single entity that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>Entity that matches the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+            Returns a queryable of entities that match the current specification.
+            </summary>
+            <param name="query">The query.</param>
+            <returns>IQueryable of entities that match the specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="query"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.And(Catel.Data.Specifications.Specification{`0})">
+            <summary>
+            Creates a new specification based on the current one combined with the specified specification.
+            </summary>
+            <param name="specification">The specification.</param>
+            <returns>New specification with the current specification combined with the specified specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="specification"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.And(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Creates a new specification based on the current one combined with the specified predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>New specification with the current specification combined with the specified predicate.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.Or(Catel.Data.Specifications.Specification{`0})">
+            <summary>
+            Creates a new specification based on the current one combined with the specified specification.
+            </summary>
+            <param name="specification">The specification.</param>
+            <returns>New specification with the current specification combined with the specified specification.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="specification"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Data.Specifications.Specification`1.Or(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Creates a new specification based on the current one combined with the specified predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns>New specification with the current specification combined with the specified predicate.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Data.Specifications.Specification`1.Predicate">
+            <summary>
+            Gets the predicate used for this specification.
+            </summary>
+            <value>The predicate.</value>
+        </member>
+    </members>
+</doc>

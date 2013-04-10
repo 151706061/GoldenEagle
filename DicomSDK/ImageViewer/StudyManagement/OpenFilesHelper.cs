@@ -27,7 +27,6 @@ using System.Collections.Generic;
 using System.IO;
 using ClearCanvas.Common;
 using ClearCanvas.Common.Utilities;
-using ClearCanvas.Desktop;
 
 namespace ClearCanvas.ImageViewer.StudyManagement
 {

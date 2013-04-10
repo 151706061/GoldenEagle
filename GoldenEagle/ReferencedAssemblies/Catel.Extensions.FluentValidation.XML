@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.FluentValidation</name>
+    </assembly>
+    <members>
+        <member name="T:Catel.DisplayNameAttribute">
+            <summary>
+            Display name attribute.
+            </summary>
+            <remarks>
+            Use in order to display a final user readable string associated to the property in the validation message.
+            </remarks>
+            <example>
+            <code>
+             <![CDATA[
+            public class PersonViewModel : ViewModelBase
+            {
+               [DisplayName("First name")]
+               property PersonFirstName { get; set;}
+            }
+            ]]>
+             </code>
+            </example>
+        </member>
+        <member name="M:Catel.DisplayNameAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.DisplayNameAttribute"/> class.
+            </summary>
+            <param name="displayName">
+            The display name.
+            </param>
+            <exception cref="T:System.ArgumentException">If <paramref name="displayName"/> is <c>null</c> or a whitespace.</exception>
+        </member>
+        <member name="P:Catel.DisplayNameAttribute.DisplayName">
+            <summary>
+            Gets the display name.
+            </summary>
+        </member>
+        <member name="T:Catel.FluentValidatorProvider">
+            <summary>
+            The fluent validator provider.
+            </summary>
+            <remarks>
+            This class will automatically retrieve the right fluent validation class associated with the view models. 
+            </remarks>
+        </member>
+        <member name="M:Catel.FluentValidatorProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.FluentValidatorProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.FluentValidatorProvider.GetValidator(System.Type)">
+            <summary>
+            Gets a validator for the specified target type.
+            </summary>
+            <remarks>
+            This method only searches for fluent validators on the assembly which the <paramref name="targetType"/> belongs to, 
+            and creates adapters that allow fluent validator talks with catel validation approach. 
+            </remarks>
+            <param name="targetType">
+              The target type.
+            </param>
+            <returns>
+            The <see cref="T:Catel.Data.IValidator"/> for the specified type or <c>null</c> if no validator is available for the specified type. 
+            If only one Validator is found an instance of <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/> is returned, otherwise a
+            <see cref="T:Catel.Data.CompositeValidator"/> is created from a collection of it's corresponding <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/>.
+            </returns>
+        </member>
+        <member name="T:Catel.FluentValidatorToCatelValidatorAdapter">
+            <summary>
+            The fluent to catel validator adapter.
+            </summary>
+        </member>
+        <member name="F:Catel.FluentValidatorToCatelValidatorAdapter._validator">
+            <summary>
+            The validator.
+            </summary>
+        </member>
+        <member name="F:Catel.FluentValidatorToCatelValidatorAdapter._validatorDescriptionAttribute">
+            <summary>
+            The validator description attribute.
+            </summary>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/> class.
+            </summary>
+            <param name="validatorType">
+            The validator type.
+            </param>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.ValidateBusinessRules(Catel.Data.ModelBase,System.Collections.Generic.List{Catel.Data.IBusinessRuleValidationResult})">
+            <summary>
+            The validate business rules.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="validationResults">The validation results.</param>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.ValidateFields(Catel.Data.ModelBase,System.Collections.Generic.List{Catel.Data.IFieldValidationResult})">
+            <summary>
+            The validate fields.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="validationResults">The validation results.</param>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.From(System.Type)">
+            <summary>
+            Creates an instance of <see cref="T:Catel.Data.IValidator"/> from an <see cref="T:FluentValidation.AbstractValidator`1"/> type implementation.
+            </summary>
+            <param name="validatorType"><see cref="T:FluentValidation.IValidator"/> type implementation.</param>
+            <returns>An instance of <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="validatorType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="validatorType"/> is not of type <see cref="T:FluentValidation.IValidator"/>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="validatorType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="validatorType"/> is not of type <see cref="T:FluentValidation.IValidator"/>.</exception>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.From(System.Collections.Generic.IList{System.Type})">
+            <summary>
+            Creates an instance of <see cref="T:Catel.Data.IValidator"/> from a collection of <see cref="T:FluentValidation.AbstractValidator`1"/> types.
+            </summary>
+            <param name="validatorTypes">Collection of <see cref="T:FluentValidation.IValidator"/> types.</param>
+            <returns>An instance of a class the implements <see cref="T:Catel.Data.IValidator"/>. If the collection contains one element an instance of <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/> is returned otherwise
+            a <see cref="T:Catel.Data.CompositeValidator"/> is created in order to aggregate the validators in a single one.</returns>
+            <exception cref="T:System.ArgumentException">Argument 'validatorTypes' must contains at least one element.</exception>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="validatorTypes"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.FluentValidatorToCatelValidatorAdapter.From``1">
+            <summary>
+            Creates an instance of <see cref="T:Catel.Data.IValidator"/> from a generic type <see cref="T:FluentValidation.IValidator"/> parameter.
+            </summary>
+            <typeparam name="TValidator">Type of <see cref="T:FluentValidation.IValidator"/>.</typeparam>
+            <returns>An instance of <see cref="T:Catel.FluentValidatorToCatelValidatorAdapter"/>.</returns>
+        </member>
+        <member name="T:Catel.ModuleInitializer">
+            <summary>
+            Class that gets called as soon as the module is loaded.
+            </summary>
+            <remarks>
+            This is made possible thanks to Fody.
+            </remarks>
+        </member>
+        <member name="M:Catel.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:Catel.ValidationType">
+            <summary>
+            Type of validation type.
+            </summary>
+        </member>
+        <member name="F:Catel.ValidationType.Field">
+            <summary>
+            Indicates whether the validation will be reported as a field validation.
+            </summary>
+        </member>
+        <member name="F:Catel.ValidationType.BusinessRule">
+            <summary>
+            Indicates whether the validation will be reported as a business rule validation.
+            </summary>
+        </member>
+        <member name="T:Catel.ValidatorDescriptionAttribute">
+            <summary>
+            The validator description attribute.
+            </summary>
+        </member>
+        <member name="M:Catel.ValidatorDescriptionAttribute.#ctor(System.String,Catel.Data.ValidationResultType,Catel.ValidationType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.ValidatorDescriptionAttribute"/> class.
+            </summary>
+            <param name="tag">
+            The validation tag.
+            </param>
+            <param name="validationResultType">
+            The validation result type.
+            </param>
+            <param name="validationType">
+            The validation type.
+            </param>
+        </member>
+        <member name="P:Catel.ValidatorDescriptionAttribute.Tag">
+            <summary>
+            Gets the validation tag.
+            </summary>
+        </member>
+        <member name="P:Catel.ValidatorDescriptionAttribute.ValidationResultType">
+            <summary>
+            Gets the validation result type.
+            </summary>
+        </member>
+        <member name="P:Catel.ValidatorDescriptionAttribute.ValidationType">
+            <summary>
+            Gets the validation type.
+            </summary>
+        </member>
+    </members>
+</doc>
