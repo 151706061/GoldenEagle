@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Obsolete</name>
+    </assembly>
+    <members>
+        <member name="T:ObsoleteExAttribute">
+            <summary>
+            Marks the program elements that are no longer in use. 
+            </summary>
+        </member>
+        <member name="P:ObsoleteExAttribute.Message">
+            <summary>
+            The text string that describes alternative workarounds. 
+            </summary>
+        </member>
+        <member name="P:ObsoleteExAttribute.TreatAsErrorFromVersion">
+            <summary>
+            An information Version telling the user when the Member will be removed.
+            </summary>
+            <remarks>
+            When the assembly version is equal to or higher than this value the <see cref="P:System.ObsoleteAttribute.IsError"/> will be marked to true.
+            Must be convertable to a <see cref="T:System.Version"/>.
+            </remarks>
+        </member>
+        <member name="P:ObsoleteExAttribute.RemoveInVersion">
+            <summary>
+            An information Version telling the user when the Member will be removed.
+            </summary>
+            <remarks>
+            If the assembly version is equal to or higher than this value then a compile error will thrown since it should not exist in the assembly anymore.
+            Must be convertable to a <see cref="T:System.Version"/>.
+            </remarks>
+        </member>
+        <member name="P:ObsoleteExAttribute.Replacement">
+            <summary>
+            A value pointing to the name of the remplacement member if avaliable.
+            </summary>
+        </member>
+    </members>
+</doc>

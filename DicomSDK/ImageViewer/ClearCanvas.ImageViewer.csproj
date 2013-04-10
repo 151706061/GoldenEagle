@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E72B1E73-8FE1-4C97-A9E6-7E1451BCBB13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClearCanvas.ImageViewer</RootNamespace>
+    <AssemblyName>ClearCanvas.ImageViewer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\GoldenEagle\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveImageViewerChangedEventArgs.cs" />
+    <Compile Include="Annotations\AnnotationBox.cs" />
+    <Compile Include="Annotations\AnnotationBoxList.cs" />
+    <Compile Include="Annotations\AnnotationItem.cs" />
+    <Compile Include="Annotations\AnnotationItemConfigurationOptions.cs" />
+    <Compile Include="Annotations\AnnotationItemProvider.cs" />
+    <Compile Include="Annotations\AnnotationLayout.cs" />
+    <Compile Include="Annotations\AnnotationLayoutFactory.cs" />
+    <Compile Include="Annotations\AnnotationLayoutStore.cs" />
+    <Compile Include="Annotations\AnnotationLayoutStoreSettings.cs" />
+    <Compile Include="Annotations\AnnotationLayoutStoreSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>AnnotationLayoutStoreSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Annotations\AnnotationResourceResolver.cs" />
+    <Compile Include="Annotations\BasicTextAnnotationItem.cs" />
+    <Compile Include="Annotations\Dicom\DicomAnnotationItem.cs" />
+    <Compile Include="Annotations\Dicom\DicomAnnotationLayoutFactory.cs" />
+    <Compile Include="Annotations\Dicom\DicomDataFormatHelper.cs" />
+    <Compile Include="Annotations\Dicom\DicomFilteredAnnotationLayout.cs" />
+    <Compile Include="Annotations\Dicom\DicomFilteredAnnotationLayoutStore.cs" />
+    <Compile Include="Annotations\Dicom\DicomFilteredAnnotationLayoutStoreSettings.cs" />
+    <Compile Include="Annotations\Dicom\DicomFilteredAnnotationLayoutStoreSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DicomFilteredAnnotationLayoutStoreSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Annotations\Dicom\DicomFixedAnnotationLayoutFactory.cs" />
+    <Compile Include="Annotations\Dicom\Tests\DicomBasicFormatterTests.cs" />
+    <Compile Include="Annotations\Dicom\Tests\DicomFilteredAnnotationLayoutStoreTests.cs" />
+    <Compile Include="Annotations\IAnnotationItem.cs" />
+    <Compile Include="Annotations\IAnnotationItemProvider.cs" />
+    <Compile Include="Annotations\IAnnotationLayout.cs" />
+    <Compile Include="Annotations\IAnnotationLayoutProvider.cs" />
+    <Compile Include="Annotations\IAnnotationResourceResolver.cs" />
+    <Compile Include="Annotations\MammogramAnnotationLayoutProxy.cs" />
+    <Compile Include="Annotations\StoredAnnotationBoxGroup.cs" />
+    <Compile Include="Annotations\StoredAnnotationLayout.cs" />
+    <Compile Include="Annotations\Tests\AnnotationLayoutStoreTests.cs" />
+    <Compile Include="Annotations\Utilities\TextOverlayVisibilityHelper.cs" />
+    <Compile Include="AuthorityTokens.cs" />
+    <Compile Include="Automation\Annotations.cs" />
+    <Compile Include="Automation\AutomationContext.cs" />
+    <Compile Include="Automation\Calibration.cs" />
+    <Compile Include="Automation\DisplaySetLayout.cs" />
+    <Compile Include="Automation\LookupTable.cs" />
+    <Compile Include="Automation\Probe.cs" />
+    <Compile Include="Automation\Stack.cs" />
+    <Compile Include="Automation\WorkspaceLayout.cs" />
+    <Compile Include="Automation\Zoom.cs" />
+    <Compile Include="BasicPresentationImage.cs" />
+    <Compile Include="CloningExceptions.cs" />
+    <Compile Include="ColorPresentationImage.cs" />
+    <Compile Include="Comparers\AcquisitionTimeComparer.cs" />
+    <Compile Include="Comparers\ComparerBase.cs" />
+    <Compile Include="Comparers\DicomFrameComparer.cs" />
+    <Compile Include="Comparers\DicomSeriesComparer.cs" />
+    <Compile Include="Comparers\DicomSopComparer.cs" />
+    <Compile Include="Comparers\DicomStudyComparer.cs" />
+    <Compile Include="Comparers\DisplaySetComparer.cs" />
+    <Compile Include="Comparers\DisplaySetNumberComparer.cs" />
+    <Compile Include="Comparers\ImageSetComparer.cs" />
+    <Compile Include="Comparers\InstanceAndFrameNumberComparer.cs" />
+    <Compile Include="Comparers\InstanceNumberComparer.cs" />
+    <Compile Include="Comparers\PresentationImageComparer.cs" />
+    <Compile Include="Comparers\ReverseComparer.cs" />
+    <Compile Include="Comparers\SeriesNumberComparer.cs" />
+    <Compile Include="Comparers\SliceLocationComparer.cs" />
+    <Compile Include="Comparers\StudyDateComparer.cs" />
+    <Compile Include="Comparers\Tests\SortTests.cs" />
+    <Compile Include="DicomColorPresentationImage.cs" />
+    <Compile Include="DicomGrayscalePresentationImage.cs" />
+    <Compile Include="DicomPresentationImageSettings.cs" />
+    <Compile Include="DicomPresentationImageSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DicomPresentationImageSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="DisplaySet.cs" />
+    <Compile Include="DisplaySetChangedEventArgs.cs" />
+    <Compile Include="DisplaySetChangingEventArgs.cs" />
+    <Compile Include="DisplaySetCollection.cs" />
+    <Compile Include="DisplaySetDescriptor.cs" />
+    <Compile Include="DisplaySetFactories.cs" />
+    <Compile Include="DisplaySetFactory.cs" />
+    <Compile Include="DisplaySetSelectedEventArgs.cs" />
+    <Compile Include="EditBox.cs" />
+    <Compile Include="EventBroker.cs" />
+    <Compile Include="Format.cs" />
+    <Compile Include="FormatSettings.cs" />
+    <Compile Include="FormatSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>FormatSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Graphics\ArcPrimitive.cs" />
+    <Compile Include="Graphics\ArrowGraphic.cs" />
+    <Compile Include="Graphics\BoundableGraphic.cs" />
+    <Compile Include="Graphics\ColorBarGraphic.cs" />
+    <Compile Include="Graphics\ColorImageGraphic.cs" />
+    <Compile Include="Graphics\CompositeGraphic.cs" />
+    <Compile Include="Graphics\CompositeImageGraphic.cs" />
+    <Compile Include="Graphics\CurvePrimitive.cs" />
+    <Compile Include="Graphics\DecoratorCompositeGraphic.cs" />
+    <Compile Include="Graphics\EllipsePrimitive.cs" />
+    <Compile Include="Graphics\FlashOverlayController.cs" />
+    <Compile Include="Graphics\Graphic.cs" />
+    <Compile Include="Graphics\GraphicCollection.cs" />
+    <Compile Include="Graphics\GraphicEventArgs.cs" />
+    <Compile Include="Graphics\GraphicFocusChangedEventArgs.cs" />
+    <Compile Include="Graphics\GraphicSelectionChangedEventArgs.cs" />
+    <Compile Include="Graphics\GrayscaleImageGraphic.cs" />
+    <Compile Include="Graphics\IApplicationGraphicsProvider.cs" />
+    <Compile Include="Graphics\IArcGraphic.cs" />
+    <Compile Include="Graphics\IBoundableGraphic.cs" />
+    <Compile Include="Graphics\IFocussableGraphic.cs" />
+    <Compile Include="Graphics\IGraphic.cs" />
+    <Compile Include="Graphics\IGraphicVoiLutFactory.cs" />
+    <Compile Include="Graphics\IImageGraphicProvider.cs" />
+    <Compile Include="Graphics\IImageSpatialTransform.cs" />
+    <Compile Include="Graphics\ILineSegmentGraphic.cs" />
+    <Compile Include="Graphics\ImageGraphic.cs" />
+    <Compile Include="Graphics\ImageSpatialTransform.cs" />
+    <Compile Include="Graphics\ImageSpatialTransformMemento.cs" />
+    <Compile Include="Graphics\ImageTransformPolicy.cs" />
+    <Compile Include="Graphics\InvariantArcPrimitive.cs" />
+    <Compile Include="Graphics\InvariantArrowheadGraphic.cs" />
+    <Compile Include="Graphics\InvariantBoundablePrimitive.cs" />
+    <Compile Include="Graphics\InvariantEllipsePrimitive.cs" />
+    <Compile Include="Graphics\InvariantLinePrimitive.cs" />
+    <Compile Include="Graphics\InvariantPrimitive.cs" />
+    <Compile Include="Graphics\InvariantRectanglePrimitive.cs" />
+    <Compile Include="Graphics\InvariantSpatialTransform.cs" />
+    <Compile Include="Graphics\InvariantTextPrimitive.cs" />
+    <Compile Include="Graphics\IOverlayGraphicsProvider.cs" />
+    <Compile Include="Graphics\IPointGraphic.cs" />
+    <Compile Include="Graphics\IPointsGraphic.cs" />
+    <Compile Include="Graphics\IPointsList.cs" />
+    <Compile Include="Graphics\ISelectableGraphic.cs" />
+    <Compile Include="Graphics\ISpatialTransform.cs" />
+    <Compile Include="Graphics\ISpatialTransformProvider.cs" />
+    <Compile Include="Graphics\ITextGraphic.cs" />
+    <Compile Include="Graphics\IVectorGraphic.cs" />
+    <Compile Include="Graphics\LinePrimitive.cs" />
+    <Compile Include="Graphics\MammographyImageSpatialTransform.cs" />
+    <Compile Include="Graphics\PointChangedEventArgs.cs" />
+    <Compile Include="Graphics\PointPrimitive.cs" />
+    <Compile Include="Graphics\PointsList.cs" />
+    <Compile Include="Graphics\PolylineGraphic.cs" />
+    <Compile Include="Graphics\RectanglePrimitive.cs" />
+    <Compile Include="Graphics\SpatialTransform.cs" />
+    <Compile Include="Graphics\SpatialTransformMemento.cs" />
+    <Compile Include="Graphics\SpatialTransformValidationPolicy.cs" />
+    <Compile Include="Graphics\Tests\ImageGraphicTests.cs" />
+    <Compile Include="Graphics\Tests\ImageSpatialTransformTests.cs" />
+    <Compile Include="Graphics\Tests\InvariantArcPrimitiveTest.cs" />
+    <Compile Include="Graphics\Tests\MammographyImageSpatialTransformTest.cs" />
+    <Compile Include="Graphics\Tests\PixelDataWrapperTest.cs" />
+    <Compile Include="Graphics\Tests\PolylineGraphicTests.cs" />
+    <Compile Include="Graphics\Tests\PrimitiveTests.cs" />
+    <Compile Include="Graphics\Tests\SpatialTransformTest.cs" />
+    <Compile Include="Graphics\Utilities\GraphicsVisibilityHelper.cs" />
+    <Compile Include="Graphics\VectorGraphic.cs" />
+    <Compile Include="Graphics\VisualStateChangedEvent.cs" />
+    <Compile Include="GrayscalePresentationImage.cs" />
+    <Compile Include="IDicomPresentationImage.cs" />
+    <Compile Include="IDisplaySet.cs" />
+    <Compile Include="IDrawable.cs" />
+    <Compile Include="IExceptionHandlingContext.cs" />
+    <Compile Include="IExceptionPolicy.cs" />
+    <Compile Include="IImageBox.cs" />
+    <Compile Include="IImageOperation.cs" />
+    <Compile Include="IImageSet.cs" />
+    <Compile Include="IImageViewer.cs" />
+    <Compile Include="ILayoutManager.cs" />
+    <Compile Include="ILogicalWorkspace.cs" />
+    <Compile Include="ImageBox.cs" />
+    <Compile Include="ImageBoxCollection.cs" />
+    <Compile Include="ImageBoxDrawingEventArgs.cs" />
+    <Compile Include="ImageBoxMemento.cs" />
+    <Compile Include="ImageBoxSelectedEventArgs.cs" />
+    <Compile Include="ImageDrawingEventArgs.cs" />
+    <Compile Include="ImageOperation.cs" />
+    <Compile Include="ImageOperationApplicator.cs" />
+    <Compile Include="ImageSet.cs" />
+    <Compile Include="ImageSetCollection.cs" />
+    <Compile Include="ImageSetDescriptor.cs" />
+    <Compile Include="ImageSetFactory.cs" />
+    <Compile Include="ImageSetGroups.cs" />
+    <Compile Include="ImageSetTree.cs" />
+    <Compile Include="Imaging\AdjustableDataLut.cs" />
+    <Compile Include="Imaging\AlgorithmCalculatedVoiLutLinear.cs" />
+    <Compile Include="Imaging\BasicVoiLutLinear.cs" />
+    <Compile Include="Imaging\CalculatedVoiLutLinear.cs" />
+    <Compile Include="Imaging\ColorMap.cs" />
+    <Compile Include="Imaging\ColorMapBase.cs" />
+    <Compile Include="Imaging\ColorMapDescriptor.cs" />
+    <Compile Include="Imaging\ColorMapFactoryBase.cs" />
+    <Compile Include="Imaging\ColorMapManager.cs" />
+    <Compile Include="Imaging\ColorMapMemento.cs" />
+    <Compile Include="Imaging\ColorPixelData.cs" />
+    <Compile Include="Imaging\ColorSpaceConverter.cs" />
+    <Compile Include="Imaging\ComposableLut.cs" />
+    <Compile Include="Imaging\ComposableLutBase.cs" />
+    <Compile Include="Imaging\ComposableModalityLut.cs" />
+    <Compile Include="Imaging\ComposableVoiLut.cs" />
+    <Compile Include="Imaging\ComposedLut.cs" />
+    <Compile Include="Imaging\ComposedLutCache.cs" />
+    <Compile Include="Imaging\DataLut.cs" />
+    <Compile Include="Imaging\DataModalityLut.cs" />
+    <Compile Include="Imaging\DataVoiLut.cs" />
+    <Compile Include="Imaging\DicomVoiLuts.cs" />
+    <Compile Include="Imaging\GeneratedDataLut.cs" />
+    <Compile Include="Imaging\GeneratedDataModalityLut.cs" />
+    <Compile Include="Imaging\GrayscalePixelData.cs" />
+    <Compile Include="Imaging\IBasicVoiLutLinear.cs" />
+    <Compile Include="Imaging\IColorMap.cs" />
+    <Compile Include="Imaging\IColorMapFactory.cs" />
+    <Compile Include="Imaging\IColorMapInstaller.cs" />
+    <Compile Include="Imaging\IColorMapManager.cs" />
+    <Compile Include="Imaging\IColorMapProvider.cs" />
+    <Compile Include="Imaging\IComposableLut.cs" />
+    <Compile Include="Imaging\IComposedLut.cs" />
+    <Compile Include="Imaging\IDataLut.cs" />
+    <Compile Include="Imaging\IDataModalityLut.cs" />
+    <Compile Include="Imaging\IdentityVoiLinearLut.cs" />
+    <Compile Include="Imaging\IGeneratedDataLut.cs" />
+    <Compile Include="Imaging\IInitialVoiLutProvider.cs" />
+    <Compile Include="Imaging\IModalityLut.cs" />
+    <Compile Include="Imaging\IModalityLutProvider.cs" />
+    <Compile Include="Imaging\InitialVoiLutProvider.cs" />
+    <Compile Include="Imaging\IVoiLut.cs" />
+    <Compile Include="Imaging\IVoiLutInstaller.cs" />
+    <Compile Include="Imaging\IVOILUTLinear.cs" />
+    <Compile Include="Imaging\IVoiLutManager.cs" />
+    <Compile Include="Imaging\IVoiLutProvider.cs" />
+    <Compile Include="Imaging\LUTCollection.cs" />
+    <Compile Include="Imaging\LUTComposer.cs" />
+    <Compile Include="Imaging\LUTFactory.cs" />
+    <Compile Include="Imaging\MinMaxPixelCalculatedLinearLut.cs" />
+    <Compile Include="Imaging\ModalityLUTLinear.cs" />
+    <Compile Include="Imaging\NamedVoiLutLinear.cs" />
+    <Compile Include="Imaging\NormalizationLutLinear.cs" />
+    <Compile Include="Imaging\OverlayData.cs" />
+    <Compile Include="Imaging\PaletteColorMap.cs" />
+    <Compile Include="Imaging\PixelData.cs" />
+    <Compile Include="Imaging\SimpleColorMap.cs" />
+    <Compile Include="Imaging\SimpleDataLut.cs" />
+    <Compile Include="Imaging\SimpleDataModalityLut.cs" />
+    <Compile Include="Imaging\StandardColorMaps.cs" />
+    <Compile Include="Imaging\Tests\ColorMapTests.cs" />
+    <Compile Include="Imaging\Tests\CompositeLUTTest.cs" />
+    <Compile Include="Imaging\Tests\IdentityVoiLinearLutTest.cs" />
+    <Compile Include="Imaging\Tests\MinMaxPixelCalculatedLutTests.cs" />
+    <Compile Include="Imaging\Tests\MiscellaneousLutTests.cs" />
+    <Compile Include="Imaging\Tests\ModalityLUTLinearTest.cs" />
+    <Compile Include="Imaging\Tests\NormalizationLutLinearTests.cs" />
+    <Compile Include="Imaging\Tests\OverlayDataTest.cs" />
+    <Compile Include="Imaging\Tests\VoiLutLinearTests.cs" />
+    <Compile Include="Imaging\VoiLutLinearBase.cs" />
+    <Compile Include="Imaging\VoiLutManager.cs" />
+    <Compile Include="Imaging\VoiLutMemento.cs" />
+    <Compile Include="Imaging\VoiWindow.cs" />
+    <Compile Include="InformationBox.cs" />
+    <Compile Include="InformationBoxChangedEventArgs.cs" />
+    <Compile Include="IPhysicalWorkspace.cs" />
+    <Compile Include="IPresentationImage.cs" />
+    <Compile Include="IPriorStudyFinder.cs" />
+    <Compile Include="ITile.cs" />
+    <Compile Include="KeyObjects\IKeyObjectContentItem.cs" />
+    <Compile Include="KeyObjects\KeyImageDeserializer.cs" />
+    <Compile Include="KeyObjects\KeyImageSerializer.cs" />
+    <Compile Include="KeyObjects\KeyObjectPlaceholderImage.cs" />
+    <Compile Include="KeyObjects\KeyObjectSelectionCodeSequences.cs" />
+    <Compile Include="LayoutManager.cs" />
+    <Compile Include="Layout\HpApplicabilityResult.cs" />
+    <Compile Include="Layout\HpDataContractAttribute.cs" />
+    <Compile Include="Layout\HpExtensionPoints.cs" />
+    <Compile Include="Layout\HpProperty.cs" />
+    <Compile Include="Layout\IHpApplicabilityContributor.cs" />
+    <Compile Include="Layout\IHpContributor.cs" />
+    <Compile Include="Layout\IHpImageBoxDefinitionContributor.cs" />
+    <Compile Include="Layout\IHpLayoutDefinitionContributor.cs" />
+    <Compile Include="Layout\IHpLayoutHook.cs" />
+    <Compile Include="Layout\IHpProperty.cs" />
+    <Compile Include="Layout\IHpSerializableElement.cs" />
+    <Compile Include="Layout\RectangularGrid.cs" />
+    <Compile Include="Layout\Tests\HpApplicabilityResultTests.cs" />
+    <Compile Include="LinkageChangedEventArgs.cs" />
+    <Compile Include="LinkedImageEnumerator.cs" />
+    <Compile Include="LoadMultipleStudiesException.cs" />
+    <Compile Include="LoadSopsException.cs" />
+    <Compile Include="LoadStudyArgs.cs" />
+    <Compile Include="LocalSopLoader.cs" />
+    <Compile Include="LogicalWorkspace.cs" />
+    <Compile Include="Mathematics\FloatComparer.cs" />
+    <Compile Include="Mathematics\Matrix.cs" />
+    <Compile Include="Mathematics\Matrix3D.cs" />
+    <Compile Include="Mathematics\PolygonF.cs" />
+    <Compile Include="Mathematics\RectangleUtilities.cs" />
+    <Compile Include="Mathematics\RectF.cs" />
+    <Compile Include="Mathematics\Size3D.cs" />
+    <Compile Include="Mathematics\Tests\FloatComparerTest.cs" />
+    <Compile Include="Mathematics\Tests\MatrixTests.cs" />
+    <Compile Include="Mathematics\Tests\PolygonFTests.cs" />
+    <Compile Include="Mathematics\Tests\RectangleUtilitiesTests.cs" />
+    <Compile Include="Mathematics\Tests\Vector3DTests.cs" />
+    <Compile Include="Mathematics\Tests\VectorTests.cs" />
+    <Compile Include="Mathematics\Vector.cs" />
+    <Compile Include="Mathematics\Vector3D.cs" />
+    <Compile Include="PermissionsHelper.cs" />
+    <Compile Include="PhysicalWorkspace.cs" />
+    <Compile Include="PhysicalWorkspaceMemento.cs" />
+    <Compile Include="PresentationImage.cs" />
+    <Compile Include="PresentationImageChangedEventArgs.cs" />
+    <Compile Include="PresentationImageCollection.cs" />
+    <Compile Include="PresentationImageFactory.cs" />
+    <Compile Include="PresentationImageSelectedEventArgs.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomColorSoftcopyPresentationState.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomEllipseGraphic.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicAnnotation.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsDeserializationException.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsFactory.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsPlane.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsPlaneLayers.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsPlaneOverlays.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsPlaneShutters.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGraphicsPlaneUserOverlays.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomGrayscaleSoftcopyPresentationState.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomOverlayDeserializationException.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomPresentationImageCollection.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomPresentationState.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomSerializableGraphicAnnotationAttribute.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomSoftcopyPresentationState.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomSoftcopyPresentationStateBase.cs" />
+    <Compile Include="PresentationStates\Dicom\DicomSoftcopyPresentationStateMaskLutBase.cs" />
+    <Compile Include="PresentationStates\Dicom\DisplayAreaSerializationOption.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\CurveGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\DecoratorGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\EllipseGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\PolylineGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\RectangleGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\GraphicAnnotationSerializers\TextGraphicAnnotationSerializer.cs" />
+    <Compile Include="PresentationStates\Dicom\OverlayPlaneGraphic.cs" />
+    <Compile Include="PresentationStates\Dicom\OverlayPlaneSource.cs" />
+    <Compile Include="PresentationStates\Dicom\OverlayPlaneSubtype.cs" />
+    <Compile Include="PresentationStates\Dicom\OverlayPlaneType.cs" />
+    <Compile Include="PresentationStates\Dicom\Tests\GeneratedOverlayTestImages.cs" />
+    <Compile Include="PresentationStates\Dicom\Tests\OverlayPlanePresentationTests.cs" />
+    <Compile Include="PresentationStates\Dicom\Tests\PresentationStateTests.cs" />
+    <Compile Include="PresentationStates\Dicom\Tests\TestPresentationImage.cs" />
+    <Compile Include="PresentationStates\Dicom\Tests\TestPresentationState.cs" />
+    <Compile Include="PresentationStates\Dicom\UserOverlayPlaneGraphic.cs" />
+    <Compile Include="PresentationStates\GeometricShutter.cs" />
+    <Compile Include="PresentationStates\GeometricShutterCache.cs" />
+    <Compile Include="PresentationStates\GeometricShuttersGraphic.cs" />
+    <Compile Include="PresentationStates\GeometricShutterUndoableCommand.cs" />
+    <Compile Include="PresentationStates\IShutterGraphic.cs" />
+    <Compile Include="PresentationStates\PresentationState.cs" />
+    <Compile Include="PresentationStates\PresentationStateGraphic.cs" />
+    <Compile Include="PriorStudyFinder.cs" />
+    <Compile Include="PriorStudyLoader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangleChangedEventArgs.cs" />
+    <Compile Include="Rendering\BackBuffer.cs" />
+    <Compile Include="Rendering\DrawArgs.cs" />
+    <Compile Include="Rendering\FontFactory.cs" />
+    <Compile Include="Rendering\GDIRenderer.cs" />
+    <Compile Include="Rendering\GdiRenderingSurface.cs" />
+    <Compile Include="Rendering\ImageBuffer.cs" />
+    <Compile Include="Rendering\ImageInterpolatorBilinear.cs" />
+    <Compile Include="Rendering\ImageRenderer.cs" />
+    <Compile Include="Rendering\IRenderer.cs" />
+    <Compile Include="Rendering\IRendererFactory.cs" />
+    <Compile Include="Rendering\IRenderingSurface.cs" />
+    <Compile Include="Rendering\RendererBase.cs" />
+    <Compile Include="Rendering\RendererFactoryBase.cs" />
+    <Compile Include="Rendering\RenderingException.cs" />
+    <Compile Include="Rendering\RenderPerformanceReportBroker.cs" />
+    <Compile Include="Rendering\Tests\ImageRendererBilinearInterpolationTests.cs" />
+    <Compile Include="Rendering\Tests\ImageRendererTestUtilities.cs" />
+    <Compile Include="Rendering\Tests\ImageRendererVoiLutTests.cs" />
+    <Compile Include="RoiGraphics\Analyzers\IRoiAnalyzer.cs" />
+    <Compile Include="RoiGraphics\Analyzers\RoiAreaAnalyzer.cs" />
+    <Compile Include="RoiGraphics\Analyzers\RoiLengthAnalyzer.cs" />
+    <Compile Include="RoiGraphics\Analyzers\RoiStatisticsAnalyzer.cs" />
+    <Compile Include="RoiGraphics\EllipticalRoi.cs" />
+    <Compile Include="RoiGraphics\IRoiAreaProvider.cs" />
+    <Compile Include="RoiGraphics\IRoiLengthProvider.cs" />
+    <Compile Include="RoiGraphics\IRoiPerimeterProvider.cs" />
+    <Compile Include="RoiGraphics\IRoiStatisticsProvider.cs" />
+    <Compile Include="RoiGraphics\LinearRoi.cs" />
+    <Compile Include="RoiGraphics\PolygonalRoi.cs" />
+    <Compile Include="RoiGraphics\RectangularRoi.cs" />
+    <Compile Include="RoiGraphics\Roi.cs" />
+    <Compile Include="RoiGraphics\RoiSettings.cs" />
+    <Compile Include="RoiGraphics\RoiSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>RoiSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RoiGraphics\RoiTransformPolicy.cs" />
+    <Compile Include="RoiGraphics\Tests\ContainsPointTest.cs" />
+    <Compile Include="RoiGraphics\Tests\EllipticalRoiTests.cs" />
+    <Compile Include="RoiGraphics\Tests\LinearRoiTests.cs" />
+    <Compile Include="RoiGraphics\Tests\PolygonalRoiTests.cs" />
+    <Compile Include="RoiGraphics\Tests\PolygonalRoiTestShapes.cs" />
+    <Compile Include="RoiGraphics\Tests\RectangularRoiTests.cs" />
+    <Compile Include="RoiGraphics\Tests\RoiStatisticsTests.cs" />
+    <Compile Include="RoiGraphics\Tests\RoiTestBase.cs" />
+    <Compile Include="RoiGraphics\Units.cs" />
+    <Compile Include="SingleStudyLoader.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardModalities.cs" />
+    <Compile Include="StandardModalitySettings.cs" />
+    <Compile Include="StandardModalitySettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>StandardModalitySettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StudyLoadedEventArgs.cs" />
+    <Compile Include="StudyManagement\CorePrefetchingStrategy.cs" />
+    <Compile Include="StudyManagement\DicomMessageSopDataSource.cs" />
+    <Compile Include="StudyManagement\Frame.cs" />
+    <Compile Include="StudyManagement\FrameCollection.cs" />
+    <Compile Include="StudyManagement\FrameDataRetrieverFactory.cs" />
+    <Compile Include="StudyManagement\FrameReference.cs" />
+    <Compile Include="StudyManagement\IDicomMessageSopDataSource.cs" />
+    <Compile Include="StudyManagement\IImageSopProvider.cs" />
+    <Compile Include="StudyManagement\ILocalSopDataSource.cs" />
+    <Compile Include="StudyManagement\ImageBoxFrameSelectionStrategy.cs" />
+    <Compile Include="StudyManagement\ImagePlaneHelper.cs" />
+    <Compile Include="StudyManagement\ImageSop.cs" />
+    <Compile Include="StudyManagement\IPrefetchingStrategy.cs" />
+    <Compile Include="StudyManagement\ISopDataSource.cs" />
+    <Compile Include="StudyManagement\ISopProvider.cs" />
+    <Compile Include="StudyManagement\IStudyFinder.cs" />
+    <Compile Include="StudyManagement\IStudyLoader.cs" />
+    <Compile Include="StudyManagement\LocalServerWatcher.cs" />
+    <Compile Include="StudyManagement\LocalSopDataSource.cs" />
+    <Compile Include="StudyManagement\NormalizedPixelSpacing.cs" />
+    <Compile Include="StudyManagement\OpenFilesHelper.cs" />
+    <Compile Include="StudyManagement\OpenStudyHelper.cs" />
+    <Compile Include="StudyManagement\Patient.cs" />
+    <Compile Include="StudyManagement\PatientCollection.cs" />
+    <Compile Include="StudyManagement\PatientOrientationHelper.cs" />
+    <Compile Include="StudyManagement\PrefetchingStrategy.cs" />
+    <Compile Include="StudyManagement\RescaleUnits.cs" />
+    <Compile Include="StudyManagement\Series.cs" />
+    <Compile Include="StudyManagement\SeriesCollection.cs" />
+    <Compile Include="StudyManagement\Sop.cs" />
+    <Compile Include="StudyManagement\SopCollection.cs" />
+    <Compile Include="StudyManagement\SopDataCache.cs" />
+    <Compile Include="StudyManagement\SopDataSource.cs" />
+    <Compile Include="StudyManagement\SopFrameData.cs" />
+    <Compile Include="StudyManagement\SopReference.cs" />
+    <Compile Include="StudyManagement\SopValidationException.cs" />
+    <Compile Include="StudyManagement\SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StudyManagement\StandardSopDataSource.cs" />
+    <Compile Include="StudyManagement\Study.cs" />
+    <Compile Include="StudyManagement\StudyCollection.cs" />
+    <Compile Include="StudyManagement\StudyExtensions.cs" />
+    <Compile Include="StudyManagement\StudyFinder.cs" />
+    <Compile Include="StudyManagement\StudyFinderMap.cs" />
+    <Compile Include="StudyManagement\StudyItem.cs" />
+    <Compile Include="StudyManagement\StudyLoader.cs" />
+    <Compile Include="StudyManagement\StudyLoaderMap.cs" />
+    <Compile Include="StudyManagement\StudyTree.cs" />
+    <Compile Include="StudyManagement\Tests\ActivityMonitorComponentTests.cs" />
+    <Compile Include="StudyManagement\Tests\NormalizedPixelSpacingTests.cs" />
+    <Compile Include="StudyManagement\Tests\SopTests.cs" />
+    <Compile Include="StudyManagement\Tests\StudyBuilder.cs" />
+    <Compile Include="StudyManagement\Tests\StudyBuilderFactory.cs" />
+    <Compile Include="StudyManagement\Tests\UnitTestStudyLoader.cs" />
+    <Compile Include="StudyManagement\ValidationSettings.cs" />
+    <Compile Include="StudyManagement\ValidationSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ValidationSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StudyManagement\ViewerFrameEnumerator.cs" />
+    <Compile Include="StudyManagement\WeightedWindowPrefetchingStrategy.cs" />
+    <Compile Include="Tile.cs" />
+    <Compile Include="TileCollection.cs" />
+    <Compile Include="TileMemento.cs" />
+    <Compile Include="TileSelectedEventArgs.cs" />
+    <Compile Include="Trees\CheckState.cs" />
+    <Compile Include="Trees\IItemCollection.cs" />
+    <Compile Include="Trees\ItemCollection.cs" />
+    <Compile Include="Trees\ITree.cs" />
+    <Compile Include="Trees\ITreeItemBinding.cs" />
+    <Compile Include="Trees\ITreeItemCollection.cs" />
+    <Compile Include="Trees\Tree.cs" />
+    <Compile Include="Trees\TreeItemBinding.cs" />
+    <Compile Include="Trees\TreeItemBindingBase.cs" />
+    <Compile Include="WindowBehaviour.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Annotations\AnnotationLayoutStoreDefaults.xml" />
+    <Content Include="Annotations\Dicom\DicomFilteredAnnotationLayoutStoreDefaults.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Annotations\AnnotationLayoutStoreSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AnnotationLayoutStoreSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Annotations\Dicom\DicomFilteredAnnotationLayoutStoreSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DicomFilteredAnnotationLayoutStoreSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="app.config" />
+    <None Include="DicomPresentationImageSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DicomPresentationImageSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FormatSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>FormatSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RoiGraphics\RoiSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>RoiSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RoiGraphics\Tests\Images\aspect01.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect02.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect03.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect04.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect05.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect06.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect07.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect08.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect09.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect10.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect11.dcm" />
+    <None Include="RoiGraphics\Tests\Images\aspect12.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex01.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex02.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex03.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex04.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex05.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex06.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex07.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex08.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex09.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex10.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex11.dcm" />
+    <None Include="RoiGraphics\Tests\Images\complex12.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real01.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real01.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real02.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real02.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real03.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real03.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real04.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real04.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real05.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real05.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real06.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real06.pr.dcm" />
+    <None Include="RoiGraphics\Tests\Images\real0X.ko.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple01.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple02.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple03.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple04.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple05.dcm" />
+    <None Include="RoiGraphics\Tests\Images\simple06.dcm" />
+    <None Include="StandardModalitySettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>StandardModalitySettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StudyManagement\ValidationSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ValidationSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudyManagement\SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\ClearCanvas.Common.csproj">
+      <Project>{F6EAD428-E6CF-4DF6-B2F3-D33D532C5343}</Project>
+      <Name>ClearCanvas.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dicom\ClearCanvas.Dicom.csproj">
+      <Project>{AD9ECE2B-8268-4115-8DC8-860FBD011FFF}</Project>
+      <Name>ClearCanvas.Dicom</Name>
+    </ProjectReference>
+    <ProjectReference Include="Common\ClearCanvas.ImageViewer.Common.csproj">
+      <Project>{FEFD73C5-8541-47D2-BBDB-FF61DEA28291}</Project>
+      <Name>ClearCanvas.ImageViewer.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

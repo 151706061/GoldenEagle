@@ -1,0 +1,46 @@
+﻿<Fluent:RibbonWindow x:Class="Orchestra.Views.MainWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				     xmlns:catel="http://catel.codeplex.com"
+                     xmlns:avalondock="http://avalondock.codeplex.com"
+                     xmlns:local="clr-namespace:Orchestra"
+                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+                     ShowInTaskbar="True" ResizeMode="CanResize" SizeToContent="Manual" WindowStartupLocation="Manual" WindowState="Maximized">
+    
+     <catel:StackGrid>
+		<catel:StackGrid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="24" />
+		</catel:StackGrid.RowDefinitions>
+
+        <Fluent:Ribbon x:Name="ribbon"  Background="Black"/>
+
+        <avalondock:DockingManager x:Name="dockingManager">
+            <avalondock:DockingManager.LayoutUpdateStrategy>
+                <local:LayoutInitializer />
+            </avalondock:DockingManager.LayoutUpdateStrategy>            
+            
+            <avalondock:LayoutRoot>               
+                <avalondock:LayoutPanel Orientation="Vertical">
+
+                    <avalondock:LayoutDocumentPane x:Name="layoutDocumentPane">
+                    </avalondock:LayoutDocumentPane>
+
+                    <avalondock:LayoutAnchorablePaneGroup DockHeight="225">
+                        <avalondock:LayoutAnchorablePane>
+                            <avalondock:LayoutAnchorable ContentId="traceOutputAnchorable" Title="Debugging window">
+                                <catel:TraceOutputControl />
+                            </avalondock:LayoutAnchorable>
+                        </avalondock:LayoutAnchorablePane>
+                    </avalondock:LayoutAnchorablePaneGroup>
+                </avalondock:LayoutPanel>
+
+            </avalondock:LayoutRoot>
+        </avalondock:DockingManager>
+
+        <StatusBar>
+            <StatusBarItem Content="[statusbar]"/>
+        </StatusBar>
+    </catel:StackGrid>
+</Fluent:RibbonWindow>

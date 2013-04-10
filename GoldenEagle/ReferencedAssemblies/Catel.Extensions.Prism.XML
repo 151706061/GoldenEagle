@@ -1,0 +1,1760 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.Prism</name>
+    </assembly>
+    <members>
+        <member name="T:Catel.BootstrapperBase`1">
+            <summary>
+            The service locator bootstrapper that allows simple instantiation of the shell.
+            </summary>
+            <typeparam name="TShell">
+            The shell type
+            </typeparam>
+        </member>
+        <member name="T:Catel.BootstrapperBase">
+            <summary>
+            The service locator bootstrapper.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase._useDefaultConfiguration">
+            <summary>
+            The use default configuration.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase.#ctor(Catel.IoC.IServiceLocator)">
+            <summary>
+            Initializes the bootstrapper base.
+            </summary>
+            <param name="serviceLocator">
+            The service locator.
+            </param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.CreateContainer">
+            <summary>
+            The create container.
+            </summary>
+            <returns>
+            The current instance of <see cref="T:Catel.IoC.IServiceLocator"/>.
+            </returns>
+        </member>
+        <member name="M:Catel.BootstrapperBase.Run(System.Boolean)">
+            <summary>
+            Runs the bootstrapper.
+            </summary>
+            <param name="runWithDefaultConfiguration">if set to <c>true</c>, the tasks should run with the default configuration.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the Logger is not successfully initialized
+            -or-
+            The ModuleCatalog is not successfully initialized
+            -or-
+            The ServiceLocator is not successfully initialized
+            </exception>
+        </member>
+        <member name="M:Catel.BootstrapperBase.RunWithSplashScreen``1(System.Boolean)">
+            <summary>
+            Runs the bootstrapper using the <see cref="T:Catel.MVVM.Services.ISplashScreenService"/>.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="runWithDefaultConfiguration">if set to <c>true</c>, the tasks should run with the default configuration.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the Logger is not successfully initialized
+            -or-
+            The ModuleCatalog is not successfully initialized
+            -or-
+            The ServiceLocator is not successfully initialized
+            </exception>
+        </member>
+        <member name="M:Catel.BootstrapperBase.CreateInitializationTasks(System.Boolean)">
+            <summary>
+            Creates the initialization tasks.
+            </summary>
+            <param name="runWithDefaultConfiguration">if set to <c>true</c>, the tasks should run with the default configuration.</param>
+            <returns>Array of tasks to execute to complete the initialization.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the Logger is not successfully initialized
+            -or-
+            The ModuleCatalog is not successfully initialized
+            -or-
+            The ServiceLocator is not successfully initialized
+            </exception>
+        </member>
+        <member name="M:Catel.BootstrapperBase.InitializeBootTasks(System.Collections.Generic.IList{Catel.MVVM.Tasks.ITask})">
+            <summary>
+            Initialize boot tasks. 
+            </summary>
+            <param name="bootTasks">The aditional boot tasks.</param>
+            <remarks>Override this method to add aditional tasks that will be executed before shell initialization.</remarks>
+        </member>
+        <member name="M:Catel.BootstrapperBase.CreateLogger">
+            <summary>
+            Create the <see cref="T:Microsoft.Practices.Prism.Logging.ILoggerFacade"/> used by the bootstrapper.
+            </summary>
+            <returns>
+            An implementation of <see cref="T:Microsoft.Practices.Prism.Logging.ILoggerFacade"/>.
+            </returns>
+        </member>
+        <member name="M:Catel.BootstrapperBase.ConfigureContainer">
+            <summary>
+            The configure container.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase.ConfigureServiceLocator">
+            <summary>
+            Configures the LocatorProvider for the <see cref="T:Catel.IoC.ServiceLocator"/>.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase.InitializeModules">
+            <summary>
+            Initializes the modules. May be overwritten in a derived class to use a custom Modules Catalog.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase.OnModuleDownloadProgressChanged(System.Object,Microsoft.Practices.Prism.Modularity.ModuleDownloadProgressChangedEventArgs)">
+            <summary>
+            Called when the <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleManager"/> raises the <see cref="E:Microsoft.Practices.Prism.Modularity.IModuleManager.ModuleDownloadProgressChanged"/> event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleDownloadProgressChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.RegisterModule(Microsoft.Practices.Prism.Modularity.ModuleInfo)">
+            <summary>
+            Registers the module.
+            </summary>
+            <param name="moduleInfo">The module info.</param>
+            <returns>The register module.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="moduleInfo"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.BootstrapperBase.Container">
+            <summary>
+            Gets the default <see cref="T:Catel.IoC.IServiceLocator"/> for the application.
+            </summary>
+            <value>The default <see cref="T:Catel.IoC.IServiceLocator"/> instance.</value>
+        </member>
+        <member name="T:Catel.BootstrapperBase.LoggerFacadeAdapter">
+            <summary>
+            The logger facade adapter.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase.LoggerFacadeAdapter.CatelToLoggerFacadeMessagePattern">
+            <summary>
+            The pattern.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase.LoggerFacadeAdapter.CatelMessagePattern">
+            <summary>
+            The pattern 2.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase.LoggerFacadeAdapter._catelRegex">
+            <summary>
+            The _regex 2.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase.LoggerFacadeAdapter._catelToLoggerFacadeRegex">
+            <summary>
+            The _regex.
+            </summary>
+        </member>
+        <member name="F:Catel.BootstrapperBase.LoggerFacadeAdapter._log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.#ctor(Catel.Logging.ILog,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.BootstrapperBase.LoggerFacadeAdapter"/> class. 
+            </summary>
+            <param name="log">
+            The log.
+            </param>
+            <param name="relayCatelMessageToLoggerFacade">
+            Option to relay catel message to logger facade
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="log"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.Microsoft#Practices#Prism#Logging#ILoggerFacade#Log(System.String,Microsoft.Practices.Prism.Logging.Category,Microsoft.Practices.Prism.Logging.Priority)">
+            <summary>
+            The log.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="category">
+            The category.
+            </param>
+            <param name="priority">
+            The priority.
+            </param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.Debug(Catel.Logging.ILog,System.String,System.Object)">
+            <summary>
+            Called when a <see cref="F:Catel.Logging.LogEvent.Debug"/> message is written to the log.
+            </summary>
+            <param name="log">The log.</param>
+            <param name="message">The message.</param>
+            <param name="extraData">The additional data.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.Info(Catel.Logging.ILog,System.String,System.Object)">
+            <summary>
+            Called when a <see cref="F:Catel.Logging.LogEvent.Info"/> message is written to the log.
+            </summary>
+            <param name="log">The log.</param>
+            <param name="message">The message.</param>
+            <param name="extraData">The additional data.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.Warning(Catel.Logging.ILog,System.String,System.Object)">
+            <summary>
+            Called when a <see cref="F:Catel.Logging.LogEvent.Warning"/> message is written to the log.
+            </summary>
+            <param name="log">The log.</param>
+            <param name="message">The message.</param>
+            <param name="extraData">The additional data.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.Error(Catel.Logging.ILog,System.String,System.Object)">
+            <summary>
+            Called when a <see cref="F:Catel.Logging.LogEvent.Error"/> message is written to the log.
+            </summary>
+            <param name="log">The log.</param>
+            <param name="message">The message.</param>
+            <param name="extraData">The additional data.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase.LoggerFacadeAdapter.RelayLogMessageToLoggerFacadeIfRequired(System.String,Microsoft.Practices.Prism.Logging.Category)">
+            <summary>
+            The relay log to logger facade if required.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="category">The category.</param>
+        </member>
+        <member name="M:Catel.BootstrapperBase`1.CreateShell">
+            <summary>
+            Creates the shell or main window of the application.
+            </summary>
+            <returns>
+            The shell of the application.
+            </returns>
+        </member>
+        <member name="M:Catel.BootstrapperBase`1.InitializeShell">
+            <summary>
+            Initializes the shell.
+            </summary>
+        </member>
+        <member name="M:Catel.BootstrapperBase`1.ConfigureContainer">
+            <summary>
+            The configure container.
+            </summary>
+        </member>
+        <member name="T:Catel.BootstrapperBase`2">
+            <summary>
+            The service locator bootstrapper that allows simple instantiation of the shell and the module catalog.
+            </summary>
+            <typeparam name="TShell">
+            The shell type
+            </typeparam>
+            <typeparam name="TModuleCatalog">
+            The module catalog type
+            </typeparam>
+        </member>
+        <member name="M:Catel.BootstrapperBase`2.CreateModuleCatalog">
+            <summary>
+            Creates the <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleCatalog"/> used by Prism.
+            </summary>
+            <remarks>
+            The base implementation returns a new ModuleCatalog.
+            </remarks>
+            <returns>
+            The instance of <typeparamref name="TModuleCatalog"/> type.
+            </returns>
+        </member>
+        <member name="P:Catel.BootstrapperBase`2.ModuleCatalog">
+            <summary>
+            Gets the default <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleCatalog"/> for the application.
+            </summary>
+            <value>The default <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleCatalog"/> instance.</value>
+        </member>
+        <member name="T:Catel.DependencyObjectExtensions">
+            <summary>
+            The dependency object extensions.
+            </summary>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.GetRegionName(System.Windows.DependencyObject)">
+            <summary>
+            Gets the region name.
+            </summary>
+            <param name="this">
+            The <see cref="T:System.Windows.DependencyObject"/> instance.
+            </param>
+            <returns>
+            The region name.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.GetRegionManager(System.Windows.DependencyObject)">
+            <summary>
+            Gets the region manager.
+            </summary>
+            <param name="this">
+            The <see cref="T:System.Windows.DependencyObject"/> instance.
+            </param>
+            <returns>
+            The region manager.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.SetRegionManager(System.Windows.DependencyObject,Microsoft.Practices.Prism.Regions.IRegionManager)">
+            <summary>
+            Sets the region manager.
+            </summary>
+            <param name="this">
+            The <see cref="T:System.Windows.DependencyObject"/> instance.
+            </param>
+            <param name="regionManager">
+            The region manager.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="regionManager"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.FindFirstParentRegionManager(System.Windows.DependencyObject)">
+            <summary>
+            Find first parent region manager attached to a parent dependency object.
+            </summary>
+            <param name="this">
+            The dependency object.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> of parent dependency object whether exists, otherwise <c>null</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="this"/> is <c>null</c>.</exception>
+            <remarks>
+            This method walk up through the visual tree in order to find a parent dependency object with a <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> attached.
+            </remarks>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.GetRegionInfo(System.Windows.DependencyObject,System.String,Catel.IoC.IServiceLocator,Microsoft.Practices.Prism.Regions.IRegionManager)">
+            <summary>
+            Checks if the dependency object contains a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> with the name received as parameter. 
+            </summary>
+            <param name="this">
+            The dependency object.
+            </param>
+            <param name="regionName">
+            The region name.
+            </param>
+            <param name="serviceLocator">
+            The service locator.
+            </param>
+            <param name="defaultRegionManager">
+            The default region manager.
+            </param>
+            <returns>
+            The <see cref="T:Catel.IRegionInfo"/> if the view or nested visual nodes contains a region with the given name, otherwise <c>null</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="this"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="regionName"/> is <c>null</c> or whitespace.</exception>
+            <remarks>
+            This method also ensures the setup of the same <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> through the visual tree.<br/>
+            - If the dependency object has no a region manager the <paramref name="defaultRegionManager"/> will be set. <br/>
+            - If a parent dependency object of the give <paramref name="this"/> instance have a established <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> then the <paramref name="defaultRegionManager"/> will be ignored.<br/>
+            </remarks>
+        </member>
+        <member name="T:Catel.DependencyObjectExtensions.RegionInfo">
+            <summary>
+            The region info.
+            </summary>
+        </member>
+        <member name="T:Catel.IRegionInfo">
+            <summary>
+            The region info interface.
+            </summary>
+        </member>
+        <member name="P:Catel.IRegionInfo.RegionName">
+            <summary>
+            Gets RegionName.
+            </summary>
+        </member>
+        <member name="P:Catel.IRegionInfo.RegionManager">
+            <summary>
+            Gets RegionManager.
+            </summary>
+        </member>
+        <member name="F:Catel.DependencyObjectExtensions.RegionInfo._dependencyObject">
+            <summary>
+            The dependency object.
+            </summary>
+        </member>
+        <member name="M:Catel.DependencyObjectExtensions.RegionInfo.#ctor(System.Windows.DependencyObject)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.DependencyObjectExtensions.RegionInfo"/> class.
+            </summary>
+            <param name="dependencyObject">
+            The dependency object.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="dependencyObject"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="P:Catel.DependencyObjectExtensions.RegionInfo.Catel#IRegionInfo#RegionName">
+            <summary>
+            Gets RegionName.
+            </summary>
+        </member>
+        <member name="P:Catel.DependencyObjectExtensions.RegionInfo.Catel#IRegionInfo#RegionManager">
+            <summary>
+            Gets RegionManager.
+            </summary>
+        </member>
+        <member name="T:Catel.ILogExtensions">
+            <summary>
+            The <see cref="T:Catel.Logging.ILog"/> extensions methods.
+            </summary>
+        </member>
+        <member name="F:Catel.ILogExtensions.PriorityPrefixPattern">
+            <summary>
+            The priority prefix pattern.
+            </summary>
+        </member>
+        <member name="M:Catel.ILogExtensions.Debug(Catel.Logging.ILog,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified message as debug message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Debug(Catel.Logging.ILog,System.Exception,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified exception as debug message followed by the specified message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="exception">
+            The exception.
+            </param>
+            <param name="priority">
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="exception"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Info(Catel.Logging.ILog,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified message as info message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="priority">
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Info(Catel.Logging.ILog,System.Exception,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified exception as info message followed by the specified message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="exception">
+            The exception.
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="exception"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Warning(Catel.Logging.ILog,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified message as warning message.
+            </summary>
+            <param name="this">
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Warning(Catel.Logging.ILog,System.Exception,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified exception as warning message followed by the specified message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="exception">
+            The exception.
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="exception"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Error(Catel.Logging.ILog,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified message as error message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ILogExtensions.Error(Catel.Logging.ILog,System.Exception,Microsoft.Practices.Prism.Logging.Priority,System.String,System.Object[])">
+            <summary>
+            Writes the specified exception as error message followed by the specified message.
+            </summary>
+            <param name="this">
+            The log
+            </param>
+            <param name="exception">
+            The exception.
+            </param>
+            <param name="priority">
+            The priority
+            </param>
+            <param name="messageFormat">
+            The message format.
+            </param>
+            <param name="args">
+            The formatting arguments.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="exception"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="messageFormat"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="T:Catel.IUIVisualizerServiceExtensions">
+            <summary>
+                Extension methods for the <see cref="T:Catel.MVVM.Services.IUIVisualizerService"/>.
+            </summary>
+        </member>
+        <member name="F:Catel.IUIVisualizerServiceExtensions.ActivationRequiredInvalidOperationErrorMessage">
+            <summary>
+             Activation required invalid operation error message.
+            </summary>
+        </member>
+        <member name="F:Catel.IUIVisualizerServiceExtensions.ReferenceEqualsInvalidOperationExceptionMessage">
+            <summary>
+            Reference equals invalid operation exception message.
+            </summary>
+        </member>
+        <member name="F:Catel.IUIVisualizerServiceExtensions.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="F:Catel.IUIVisualizerServiceExtensions.ViewInfoCacheStorage">
+            <summary>
+                The cache storage.
+            </summary>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Activate(Catel.MVVM.Services.IUIVisualizerService,Catel.MVVM.IViewModel,System.String)">
+            <summary>
+            Activates a view into a specific <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> via <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> from a given view model.
+            </summary>
+            <param name="this">
+            The <see cref="T:Catel.MVVM.Services.IUIVisualizerService"/> service self instance.
+            </param>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <param name="regionName">
+            The region name.
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            If <paramref name="regionName"/> is <c>null</c> and the <paramref name="viewModel"/> was no show at least one time in a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the view that belongs to the <paramref name="viewModel"/> is already the logical child of another element.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the implementation of <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> is not registered in the IoC container.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            If the implementation of IRegionManager is not registered in the IoC container
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="viewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Activate(Catel.MVVM.Services.IUIVisualizerService,Catel.MVVM.IViewModel,Catel.MVVM.IViewModel,System.String)">
+            <summary>
+            Activates a view into a specific <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> via <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> from a given view model.
+            </summary>
+            <param name="this">
+            The <see cref="T:Catel.MVVM.Services.IUIVisualizerService"/> service self instance.
+            </param>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <param name="parentViewModel">
+            The parent view model.
+            </param>
+            <param name="regionName">
+            The region name.
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            If <paramref name="regionName"/> is <c>null</c> and the <paramref name="viewModel"/> was no show at least one time in a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the view that belongs to the <paramref name="viewModel"/> is already the logical child of another element.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the implementation of <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> is not registered in the IoC container.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The <paramref name="viewModel"/> and <paramref name="parentViewModel"/> are equals.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            If the implementation of IRegionManager is not registered in the IoC container
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="viewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="parentViewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="regionName"/> is <c>null</c> or whitespace.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Activate(Catel.MVVM.IViewModel,Catel.IRegionInfo)">
+            <summary>
+            Activates a view into a specific <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> via <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> from a given view model.
+            </summary>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <param name="regionInfo">
+            The region info.
+            </param>
+            <exception cref="T:System.NotSupportedException">
+            If the implementation of <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> is not registered in the IoC container.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Activate(Catel.MVVM.IViewModel,System.String,Microsoft.Practices.Prism.Regions.IRegionManager)">
+            <summary>
+            Activates a view into a specific <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> via <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> from a given view model.
+            </summary>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <param name="regionName">
+            The region name.
+            </param>
+            <param name="regionManager">
+            The region manager.
+            </param>
+            <exception cref="T:System.NotSupportedException">
+            If the implementation of <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> is not registered in the IoC container.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Reactivate(Catel.MVVM.IViewModel)">
+            <summary>
+            Reactivates a view from its viewmodel reference.
+            </summary>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            If the <paramref name="viewModel"/> was no show at least one time in a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.ViewModelOnClosed(System.Object,Catel.MVVM.ViewModelClosedEventArgs)">
+            <summary>
+            The view model on closed.
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+            <param name="viewModelClosedEventArgs">
+            The view model closed event args.
+            </param>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Deactivate(Catel.MVVM.Services.IUIVisualizerService,Catel.MVVM.IViewModel)">
+            <summary>
+            Deactivates the views that belongs to the <paramref name="viewModel"/> instance.
+            </summary>
+            <param name="this">
+            The <see cref="T:Catel.MVVM.Services.IUIVisualizerService"/> service self instance.
+            </param>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="viewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the <paramref name="viewModel"/> was no show at least one time in a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Deactivate(Catel.MVVM.IViewModel)">
+            <summary>
+            Deactivates the views that belongs to the <paramref name="viewModel"/> instance.
+            </summary>
+            <param name="viewModel">
+            The view model instance.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            If <paramref name="viewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            If the <paramref name="viewModel"/> was no show at least one time in a <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>.
+            </exception>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.Show(Catel.MVVM.Services.IUIVisualizerService,Catel.MVVM.IViewModel,System.Action,System.EventHandler{Catel.MVVM.Services.UICompletedEventArgs},System.UInt32)">
+            <summary>
+            Shows a window that is registered with the specified view model in a non-modal state.
+            </summary>
+            <param name="this">
+            The <see cref="T:Catel.MVVM.Services.IUIVisualizerService"/> service self instance.
+            </param>
+            <param name="viewModel">
+            The view model.
+            </param>
+            <param name="openedProc">
+            The callback procedure that will be invoked when the window is opened (registered in the <see cref="T:Catel.MVVM.Views.IViewManager"/>). This value can be <c>null</c>.
+            </param>
+            <param name="completedProc">
+            The callback procedure that will be invoked as soon as the window is closed. This value can be <c>null</c>.
+            </param>
+            <param name="timeOutInMilliseconds">
+            The time out in milliseconds.
+            </param>
+            <returns>
+            <c>true</c> if the popup window is successfully opened; otherwise <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="this"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="viewModel"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:Catel.MVVM.ViewModelNotRegisteredException">
+            The <paramref name="viewModel"/> is not registered by the
+                <see cref="M:Catel.MVVM.Services.IUIVisualizerService.Register(System.Type,System.Type)"/>
+                method first.
+            </exception>
+            <remarks>
+            If the <see cref="M:Catel.MVVM.Views.IViewManager.GetViewsOfViewModel(Catel.MVVM.IViewModel)"/> method returns no active views for the <paramref name="viewModel"/> in the expected <paramref name="timeOutInMilliseconds"/> time
+            then this method will assume that the view is actually opened and invokes <paramref name="openedProc"/> anyway.
+            </remarks>
+        </member>
+        <member name="T:Catel.IUIVisualizerServiceExtensions.ViewInfo">
+            <summary>
+            The view region item.
+            </summary>
+        </member>
+        <member name="T:Catel.IViewInfo">
+            <summary>
+            The view region item interface.
+            </summary>
+        </member>
+        <member name="P:Catel.IViewInfo.View">
+            <summary>
+            Gets View.
+            </summary>
+        </member>
+        <member name="P:Catel.IViewInfo.Region">
+            <summary>
+            Gets Region.
+            </summary>
+        </member>
+        <member name="M:Catel.IUIVisualizerServiceExtensions.ViewInfo.#ctor(System.Windows.FrameworkElement,Microsoft.Practices.Prism.Regions.IRegion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.IUIVisualizerServiceExtensions.ViewInfo"/> class.
+            </summary>
+            <param name="view">
+            The view.
+            </param>
+            <param name="region">
+            The region.
+            </param>
+        </member>
+        <member name="P:Catel.IUIVisualizerServiceExtensions.ViewInfo.Catel#IViewInfo#View">
+            <summary>
+            Gets View.
+            </summary>
+        </member>
+        <member name="P:Catel.IUIVisualizerServiceExtensions.ViewInfo.Catel#IViewInfo#Region">
+            <summary>
+            Gets Region.
+            </summary>
+        </member>
+        <member name="T:Catel.IViewModelExtensions">
+            <summary>
+            The <see cref="T:Catel.MVVM.IViewModel"/> interface extension methods.
+            </summary>
+        </member>
+        <member name="M:Catel.IViewModelExtensions.GetService``1(Catel.MVVM.IViewModel,System.Object)">
+            <summary>
+            Gets the service of the specified type.
+            </summary>
+            <typeparam name="T">Type of the service.</typeparam>
+            <param name="this">The instance.</param>
+            <param name="tag">The tag.</param>
+            <returns>Service object or <c>null</c> if the service is not found.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="this"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.IModuleTracker">
+            <summary>
+            Provides ability for modules to inform the quickstart of their state.
+            </summary>
+        </member>
+        <member name="M:Catel.IModuleTracker.RecordModuleDownloading(System.String,System.Int64,System.Int64)">
+            <summary>
+            Records the module is loading.
+            </summary>
+            <param name="moduleName">The well-known name of the module.</param>
+            <param name="bytesReceived">The number of bytes downloaded.</param>
+            <param name="totalBytesToReceive">The total bytes to receive.</param>
+        </member>
+        <member name="M:Catel.IModuleTracker.RecordModuleLoaded(System.String)">
+            <summary>
+            Records the module has been loaded.
+            </summary>
+            <param name="moduleName">The well-known name of the module.</param>
+        </member>
+        <member name="M:Catel.IModuleTracker.RecordModuleConstructed(System.String)">
+            <summary>
+            Records that the module has been constructed.
+            </summary>
+            <param name="moduleName">The well-known name of the module.</param>
+        </member>
+        <member name="M:Catel.IModuleTracker.RecordModuleInitialized(System.String)">
+            <summary>
+            Records that the module has been initialized.
+            </summary>
+            <param name="moduleName">The well-known name of the module.</param>
+        </member>
+        <member name="T:Catel.ModuleInitializer">
+            <summary>
+            Class that gets called as soon as the module is loaded.
+            </summary>
+            <remarks>
+            This is made possible thanks to Fody.
+            </remarks>
+        </member>
+        <member name="M:Catel.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:Catel.Modules.CompositeModuleCatalog">
+            <summary>
+            Allows the combination of serveral module catalogs into a single module catalog.
+            </summary>
+            <remarks>
+            This class can be used to aggregate serveral <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleCatalog"/> instances and deal with them as one. 
+            Dependency between cross catalog modules is allowed. 
+            </remarks>
+            <example>
+            <code>
+            <![CDATA[
+            public class Bootstrapper : BootstrapperBase<Shell, CompositeModuleCatalog>
+            {
+            	protected override void ConfigureModuleCatalog()
+            	{
+            		ModuleCatalog.Add(new DirectoryModuleCatalog { ModulePath = @".\" + ModuleBase.ModulesDirectory});
+            		ModuleCatalog.Add(new ConfigurationModuleCatalog());
+            	}
+            }
+            ]]>
+             </code>
+            </example>
+        </member>
+        <member name="T:Catel.Modules.ModuleCatalog">
+            <summary>
+            The <see cref="T:Catel.Modules.ModuleCatalog"/> holds information about the modules that can be used by the 
+            application. Each module is described in a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> class, that records the 
+            name, type and location of the module. 
+            
+            It also verifies that the <see cref="T:Catel.Modules.ModuleCatalog"/> is internally valid. That means that
+            it does not have:
+            <list>
+                <item>Circular dependencies</item>
+                <item>Missing dependencies</item>
+                <item>
+                    Invalid dependencies, such as a Module that's loaded at startup that depends on a module 
+                    that might need to be retrieved.
+                </item>
+            </list>
+            The <see cref="T:Catel.Modules.ModuleCatalog"/> also serves as a baseclass for more specialized Catalogs .
+            </summary>
+            <remarks>
+            This implementation is actually based on the original source of Prism. But is thread safe and actually allow inherits from it with correctness.
+            </remarks>
+        </member>
+        <member name="F:Catel.Modules.ModuleCatalog.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleCatalog._items">
+            <summary>
+            The items.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleCatalog._synchronizationContext">
+            <summary>
+            The synchronization context.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleCatalog._isLoaded">
+            <summary>
+            The is loaded.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleCatalog"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleCatalog"/> class while providing an 
+            initial list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s.
+            </summary>
+            <param name="modules">
+            The initial list of modules.
+            </param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="modules"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.GetDependentModules(Microsoft.Practices.Prism.Modularity.ModuleInfo)">
+            <summary>
+            Return the list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s that <paramref name="moduleInfo"/> depends on.
+            </summary>
+            <remarks>
+            If  the <see cref="T:Catel.Modules.ModuleCatalog"/> was not yet validated, this method will call <see cref="M:Catel.Modules.ModuleCatalog.Validate"/>.
+            </remarks>
+            <param name="moduleInfo">
+            The <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to get the 
+            </param>
+            <returns>
+            An enumeration of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> that <paramref name="moduleInfo"/> depends on.
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.CompleteListWithDependencies(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})">
+            <summary>
+            Returns a list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s that contain both the <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s in 
+            <paramref name="modules"/>, but also all the modules they depend on. 
+            </summary>
+            <param name="modules">
+            The modules to get the dependencies for.
+            </param>
+            <returns>
+            A list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> that contains both all <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s in <paramref name="modules"/>
+            but also all the <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> they depend on.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="modules"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(Microsoft.Practices.Prism.Modularity.ModuleInfo)">
+            <summary>
+            Adds a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the <see cref="T:Catel.Modules.ModuleCatalog"/>.
+            </summary>
+            <param name="moduleInfo">
+            The <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to add.
+            </param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="moduleInfo"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.Initialize">
+            <summary>
+            Initializes the catalog, which may load and validate the modules.
+            </summary>
+            <exception cref="T:Microsoft.Practices.Prism.Modularity.ModularityException">When validation of the <see cref="T:Catel.Modules.ModuleCatalog"/> fails, because this method calls <see cref="M:Catel.Modules.ModuleCatalog.Validate"/>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.CreateFromXaml(System.IO.Stream)">
+            <summary>
+            Creates a <see cref="T:Catel.Modules.ModuleCatalog"/> from XAML.
+            </summary>
+            <param name="xamlStream">
+            <see cref="T:System.IO.Stream"/> that contains the XAML declaration of the catalog.
+            </param>
+            <returns>
+            An instance of <see cref="T:Catel.Modules.ModuleCatalog"/> built from the XAML.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="xamlStream"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.CreateFromXaml(System.Uri)">
+            <summary>
+            Creates a <see cref="T:Catel.Modules.ModuleCatalog"/> from a XAML included as an Application Resource.
+            </summary>
+            <param name="builderResourceUri">
+            Relative <see cref="T:System.Uri"/> that identifies the XAML included as an Application Resource.
+            </param>
+            <returns>
+            An instance of <see cref="T:Catel.Modules.ModuleCatalog"/> build from the XAML.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="builderResourceUri"/> is <c>null</c>.</exception>
+            <exception cref="T:System.NotSupportedException">The <paramref name="builderResourceUri"/> points to an url, which must be downloaded asynchronously.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.Load">
+            <summary>
+            Loads the catalog if necessary.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.Validate">
+            <summary>
+            Validates the <see cref="T:Catel.Modules.ModuleCatalog"/>.
+            </summary>
+            <exception cref="T:Microsoft.Practices.Prism.Modularity.ModularityException">When validation of the <see cref="T:Catel.Modules.ModuleCatalog"/> fails.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(System.Type,System.String[])">
+            <summary>
+            Adds a groupless <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the catalog.
+            </summary>
+            <param name="moduleType">
+            <see cref="T:System.Type"/> of the module to be added.
+            </param>
+            <param name="dependsOn">
+            Collection of module names (<see cref="P:Microsoft.Practices.Prism.Modularity.ModuleInfo.ModuleName"/>) of the modules on which the module to be added logically depends on.
+            </param>
+            <returns>
+            The same <see cref="T:Catel.Modules.ModuleCatalog"/> instance with the added module.
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(System.Type,Microsoft.Practices.Prism.Modularity.InitializationMode,System.String[])">
+            <summary>
+            Adds a groupless <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the catalog.
+            </summary>
+            <param name="moduleType">
+            <see cref="T:System.Type"/> of the module to be added.
+            </param>
+            <param name="initializationMode">
+            Stage on which the module to be added will be initialized.
+            </param>
+            <param name="dependsOn">
+            Collection of module names (<see cref="P:Microsoft.Practices.Prism.Modularity.ModuleInfo.ModuleName"/>) of the modules on which the module to be added logically depends on.
+            </param>
+            <returns>
+            The same <see cref="T:Catel.Modules.ModuleCatalog"/> instance with the added module.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="moduleType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(System.String,System.String,System.String[])">
+            <summary>
+            Adds a groupless <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the catalog.
+            </summary>
+            <param name="moduleName">
+            Name of the module to be added.
+            </param>
+            <param name="moduleType">
+            <see cref="T:System.Type"/> of the module to be added.
+            </param>
+            <param name="dependsOn">
+            Collection of module names (<see cref="P:Microsoft.Practices.Prism.Modularity.ModuleInfo.ModuleName"/>) of the modules on which the module to be added logically depends on.
+            </param>
+            <returns>
+            The same <see cref="T:Catel.Modules.ModuleCatalog"/> instance with the added module.
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(System.String,System.String,Microsoft.Practices.Prism.Modularity.InitializationMode,System.String[])">
+            <summary>
+            Adds a groupless <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the catalog.
+            </summary>
+            <param name="moduleName">
+            Name of the module to be added.
+            </param>
+            <param name="moduleType">
+            <see cref="T:System.Type"/> of the module to be added.
+            </param>
+            <param name="initializationMode">
+            Stage on which the module to be added will be initialized.
+            </param>
+            <param name="dependsOn">
+            Collection of module names (<see cref="P:Microsoft.Practices.Prism.Modularity.ModuleInfo.ModuleName"/>) of the modules on which the module to be added logically depends on.
+            </param>
+            <returns>
+            The same <see cref="T:Catel.Modules.ModuleCatalog"/> instance with the added module.
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddModule(System.String,System.String,System.String,Microsoft.Practices.Prism.Modularity.InitializationMode,System.String[])">
+            <summary>
+            Adds a groupless <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> to the catalog.
+            </summary>
+            <param name="moduleName">
+            Name of the module to be added.
+            </param>
+            <param name="moduleType">
+            <see cref="T:System.Type"/> of the module to be added.
+            </param>
+            <param name="refValue">
+            Reference to the location of the module to be added assembly.
+            </param>
+            <param name="initializationMode">
+            Stage on which the module to be added will be initialized.
+            </param>
+            <param name="dependsOn">
+            Collection of module names (<see cref="P:Microsoft.Practices.Prism.Modularity.ModuleInfo.ModuleName"/>) of the modules on which the module to be added logically depends on.
+            </param>
+            <returns>
+            The same <see cref="T:Catel.Modules.ModuleCatalog"/> instance with the added module.
+            </returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleName"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleType"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.AddGroup(Microsoft.Practices.Prism.Modularity.InitializationMode,System.String,Microsoft.Practices.Prism.Modularity.ModuleInfo[])">
+            <summary>
+            Creates and adds a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfoGroup"/> to the catalog.
+            </summary>
+            <param name="initializationMode">
+            Stage on which the module group to be added will be initialized.
+            </param>
+            <param name="refValue">
+            Reference to the location of the module group to be added.
+            </param>
+            <param name="moduleInfos">
+            Collection of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> included in the group.
+            </param>
+            <returns>
+            <see cref="T:Catel.Modules.ModuleCatalog"/> with the added module group.
+            </returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleInfos"/> is <c>null</c> or an empty array.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.SolveDependencies(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})">
+            <summary>
+            Checks for cyclic dependencies, by calling the dependencysolver. 
+            </summary>
+            <param name="modules">
+            the.
+            </param>
+            <returns>
+            The System.String[].
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="modules"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ValidateDependencies(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})">
+            <summary>
+            Ensures that all the dependencies within <paramref name="modules"/> refer to <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s
+            within that list.
+            </summary>
+            <param name="modules">
+            The modules to validate modules for.
+            </param>
+            <exception cref="T:Microsoft.Practices.Prism.Modularity.ModularityException">
+            Throws if a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> in <paramref name="modules"/> depends on a module that's 
+            not in <paramref name="modules"/>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Throws if <paramref name="modules"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="modules"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.InnerLoad">
+            <summary>
+            Does the actual work of loading the catalog.
+            <para />
+            The base implementation does nothing.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.GetModuleInfoByName(System.String)">
+            <summary>
+            Gets a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> by a module name.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+            <returns>The <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> or <c>null</c> if the module could not be found.</returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.Sort(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})">
+            <summary>
+            Sorts a list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s. This method is called by <see cref="M:Catel.Modules.ModuleCatalog.CompleteListWithDependencies(System.Collections.Generic.IEnumerable{Microsoft.Practices.Prism.Modularity.ModuleInfo})"/>
+            to return a sorted list. 
+            </summary>
+            <param name="modules">
+            The <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s to sort.
+            </param>
+            <returns>
+            Sorted list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ValidateUniqueModules">
+            <summary>
+            Makes sure all modules have an Unique name. 
+            </summary>
+            <exception cref="T:Microsoft.Practices.Prism.Modularity.DuplicateModuleException">
+            Thrown if the names of one or more modules are not unique. 
+            </exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ValidateDependencyGraph">
+            <summary>
+            Ensures that there are no cyclic dependencies. 
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ValidateCrossGroupDependencies">
+            <summary>
+            Ensures that there are no dependencies between modules on different groups.
+            </summary>
+            <remarks>
+            A groupless module can only depend on other groupless modules.
+            A module within a group can depend on other modules within the same group and/or on groupless modules.
+            </remarks>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ValidateDependenciesInitializationMode">
+            <summary>
+            Ensures that there are no modules marked to be loaded <see cref="F:Microsoft.Practices.Prism.Modularity.InitializationMode.WhenAvailable"/>
+            depending on modules loaded <see cref="F:Microsoft.Practices.Prism.Modularity.InitializationMode.OnDemand"/>
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.GetDependentModulesInner(Microsoft.Practices.Prism.Modularity.ModuleInfo)">
+            <summary>
+            Returns the <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> on which the received module dependens on.
+            </summary>
+            <param name="moduleInfo">
+            Module whose dependant modules are requested.
+            </param>
+            <returns>
+            Collection of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> dependants of <paramref name="moduleInfo"/>.
+            </returns>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.EnsureCatalogValidated">
+            <summary>
+            Ensures that the catalog is validated.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ItemsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            The items collection changed.
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+            <param name="e">
+            The event args.
+            </param>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.Items">
+            <summary>
+            Gets the items in the <see cref="T:Catel.Modules.ModuleCatalog"/>. This property is mainly used to add <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfoGroup"/>s or 
+            <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s through XAML. 
+            </summary>
+            <value>The items in the catalog.</value>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.Groups">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfoGroup"/>s that have been added to the <see cref="T:Catel.Modules.ModuleCatalog"/>. 
+            </summary>
+            <value>The groups.</value>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.QueryItems">
+            <summary>
+            Gets a readonly access to Items.
+            </summary>
+            <remarks>Override this property to enumerate the module catalog items</remarks>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.Validated">
+            <summary>
+            Gets or sets a value that remembers whether the <see cref="T:Catel.Modules.ModuleCatalog"/> has been validated already. 
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.GrouplessModules">
+            <summary>
+            Returns the list of <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/>s that are not contained within any <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfoGroup"/>. 
+            </summary>
+            <value>The groupless modules.</value>
+        </member>
+        <member name="P:Catel.Modules.ModuleCatalog.Modules">
+            <summary>
+            Gets all the <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfo"/> classes that are in the <see cref="T:Catel.Modules.ModuleCatalog"/>, regardless 
+            if they are within a <see cref="T:Microsoft.Practices.Prism.Modularity.ModuleInfoGroup"/> or not. 
+            </summary>
+            <value>The modules.</value>
+        </member>
+        <member name="T:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection">
+            <summary>
+            The module catalog item collection.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.InsertItem(System.Int32,Microsoft.Practices.Prism.Modularity.IModuleCatalogItem)">
+            <summary>
+            The insert item.
+            </summary>
+            <param name="index">
+            The index.
+            </param>
+            <param name="item">
+            The item.
+            </param>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.OnNotifyCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            The on notify collection changed.
+            </summary>
+            <param name="eventArgs">
+            The event args.
+            </param>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.OnBeginCollectionChanged(System.EventArgs)">
+            <summary>
+            The on begin collection changed.
+            </summary>
+            <param name="e">
+            The event arg.
+            </param>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.OnEndCollectionChanged(System.EventArgs)">
+            <summary>
+            The on end collection changed.
+            </summary>
+            <param name="e">
+            The event arg.
+            </param>
+        </member>
+        <member name="M:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.RemoveItem(System.Int32)">
+            <summary>
+            Removes the element at the specified index of the <see cref="T:System.Collections.ObjectModel.Collection`1"/>.
+            </summary>
+            <param name="index">
+            The zero-based index of the element to remove.
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="index"/> is less than zero.-or-<paramref name="index"/> is equal to or greater than <see cref="P:System.Collections.ObjectModel.Collection`1.Count"/>.
+            </exception>
+        </member>
+        <member name="E:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.CollectionChanged">
+            <summary>
+            The collection changed.
+            </summary>
+        </member>
+        <member name="E:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.BeginCollectionChanged">
+            <summary>
+            The begin collection changed.
+            </summary>
+        </member>
+        <member name="E:Catel.Modules.ModuleCatalog.ModuleCatalogItemCollection.EndCollectionChanged">
+            <summary>
+            The end collection changed.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.CompositeModuleCatalog.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.CompositeModuleCatalog._moduleCatalogs">
+            <summary>
+            The module catalog list.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.CompositeModuleCatalog.Initialize">
+            <summary>
+            Initializes the catalog, which may load and validate the modules. 
+            </summary>
+            <exception cref="T:Microsoft.Practices.Prism.Modularity.ModularityException">
+            When validation of the ModuleCatalog fails, because this method calls Validate(). 
+            </exception>
+            <remarks>
+            This method tries to initialize every single module catalog and finally initialize it self.<br/>
+            - The initialization fails of the module catalog parts with <see cref="T:Microsoft.Practices.Prism.Modularity.ModularityException"/>) will be ignored. The catalog will run at the end it's own initialization allowing "cross module catalog" module dependencies.    
+            </remarks>
+        </member>
+        <member name="M:Catel.Modules.CompositeModuleCatalog.Add(Microsoft.Practices.Prism.Modularity.IModuleCatalog)">
+            <summary>
+            Add a module catalog.
+            </summary>
+            <param name="moduleCatalog">
+            The module catalog.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="moduleCatalog"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="P:Catel.Modules.CompositeModuleCatalog.QueryItems">
+            <summary>
+            Gets the items in the <see cref="T:Catel.Modules.ModuleCatalog"/>.
+            </summary>
+            <value>The items in all module catalogs.</value>
+        </member>
+        <member name="T:Catel.Modules.ModuleBase`1">
+            <summary>
+            Base class to allow faster development of prism modules.
+            </summary>
+            <typeparam name="TContainer">The type of the IoC container.</typeparam>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.#ctor(System.String,Catel.IModuleTracker,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleBase`1"/> class.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+            <param name="moduleTracker">The module tracker.</param>
+            <param name="container">The container.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.Initialize">
+            <summary>
+            Notifies the module that it has be initialized.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.OnInitializing">
+            <summary>
+            Called when the module is initializing.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.OnRegisterViewsAndTypes">
+            <summary>
+            Registers the views and types.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.OnInitialized">
+            <summary>
+            Called when the module has been initialized.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase`1.GetService``1">
+            <summary>
+            Gets the service from the <see cref="T:Catel.IoC.ServiceLocator"/>.
+            </summary>
+            <typeparam name="T">The type of the service to retrieve.</typeparam>
+            <returns>The service retrieved from the <see cref="T:Catel.IoC.ServiceLocator"/>.</returns>
+        </member>
+        <member name="P:Catel.Modules.ModuleBase`1.Container">
+            <summary>
+            Gets the IoC container.
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleBase`1.RegionManager">
+            <summary>
+            Gets the region manager.
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleBase`1.ModuleTracker">
+            <summary>
+            Gets the module tracker.
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleBase`1.ModuleName">
+            <summary>
+            Gets the name of the module.
+            </summary>
+        </member>
+        <member name="T:Catel.Modules.ModuleBase">
+            <summary>
+            Base class to allow faster development of prism modules which uses the <see cref="T:Catel.IoC.IServiceLocator"/>
+            as IoC container.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase.#ctor(System.String,Catel.IModuleTracker,Catel.IoC.IServiceLocator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleBase`1"/> class.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+            <param name="moduleTracker">The module tracker.</param>
+            <param name="container">The container.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Catel.Modules.ModuleBase.GetService``1">
+            <summary>
+            Gets the service from the <see cref="T:Catel.IoC.ServiceLocator"/>.
+            </summary>
+            <typeparam name="T">The type of the service to retrieve.</typeparam>
+            <returns>The service retrieved from the <see cref="T:Catel.IoC.ServiceLocator"/>.</returns>
+        </member>
+        <member name="T:Catel.Modules.ModuleManager.IModuleInfoManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.IModuleInfoManager.KnownModules">
+            <summary>
+            Gets the known modules.
+            </summary>
+        </member>
+        <member name="T:Catel.Modules.ModuleManager.Models.ModuleTemplate">
+            <summary>
+            The module template.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.Models.ModuleTemplate.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.Models.ModuleTemplate.ModuleNameProperty">
+            <summary>Register the ModuleName property so it is known in the class.</summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.Models.ModuleTemplate.StateProperty">
+            <summary>Register the State property so it is known in the class.</summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.Models.ModuleTemplate.EnabledProperty">
+            <summary>Register the Enabled property so it is known in the class.</summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.Models.ModuleTemplate.TimeProperty">
+            <summary>Register the Time property so it is known in the class.</summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.Models.ModuleTemplate.ModuleName">
+            <summary>
+            Gets or sets the name of the module.
+            </summary>
+            <value>
+            The name of the module.
+            </value>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.Models.ModuleTemplate.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.Models.ModuleTemplate.Enabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Catel.Modules.ModuleManager.Models.ModuleTemplate"/> is enabled.
+            </summary>
+            <value>
+              <c>true</c> if enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.Models.ModuleTemplate.Time">
+            <summary>
+            Gets or sets the time.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="T:Catel.Modules.ModuleManager.ModuleInfoManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.ModuleInfoManager._lock">
+            <summary>
+            The lock.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.ModuleInfoManager._serviceLocator">
+            <summary>
+            The service locator.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleManager.ModuleInfoManager.#ctor(Catel.IoC.IServiceLocator)">
+            <summary>
+            Initializes the ModuleInfoManager.
+            </summary>
+            <param name="serviceLocator">
+            The service locator.
+            </param>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.ModuleInfoManager.KnownModules">
+            <summary>
+            Gets the known modules.
+            </summary>
+        </member>
+        <member name="T:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel">
+            <summary>
+            Module manager view model.
+            </summary>
+        </member>
+        <member name="F:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel.ApplicationModulesProperty">
+            <summary>Register the ApplicationModules property so it is known in the class.</summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel.ApplicationModules">
+            <summary>
+            Gets or sets the application modules.
+            </summary>
+            <value>
+            The application modules.
+            </value>
+        </member>
+        <member name="P:Catel.Modules.ModuleManager.ViewModels.ModuleManagerViewModel.Title">
+            <summary>
+            Gets the title of the view model.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="T:Catel.Modules.ModuleManager.ModuleManagerView">
+            <summary>
+            Interaction logic for ModuleManagerView.xaml.
+            </summary>
+            <summary>
+            ModuleManagerView
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleManager.ModuleManagerView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Modules.ModuleManager.ModuleManagerView"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Modules.ModuleManager.ModuleManagerView.GetViewModelType">
+            <summary>
+            Gets the type of the view model. If this method returns <c>null</c>, the view model type will be retrieved by naming
+            convention using the <see cref="T:Catel.MVVM.IViewModelLocator"/> registered in the <see cref="T:Catel.IoC.IServiceLocator"/>.
+            </summary>
+            <returns>The type of the view model or <c>null</c> in case it should be auto determined.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Catel.Modules.ModuleManager.ModuleManagerView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Catel.ServiceLocatorAdapter">
+            <summary>
+            The catel service locator adapter.
+            </summary>
+        </member>
+        <member name="F:Catel.ServiceLocatorAdapter._serviceLocator">
+            <summary>
+            The service locator.
+            </summary>
+        </member>
+        <member name="M:Catel.ServiceLocatorAdapter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.ServiceLocatorAdapter"/> class.
+            </summary>
+            <remarks>
+            Do not remove this method, the <see cref="T:Catel.IoC.ServiceLocator"/> cannot instantiate classes with arguments.
+            </remarks>
+        </member>
+        <member name="M:Catel.ServiceLocatorAdapter.#ctor(Catel.IoC.IServiceLocator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.ServiceLocatorAdapter"/> class. 
+            </summary>
+            <param name="serviceLocator">
+            The service Locator. If <c>null</c>, <see cref="P:Catel.IoC.ServiceLocator.Default"/> will be used.
+            </param>
+        </member>
+        <member name="M:Catel.ServiceLocatorAdapter.DoGetInstance(System.Type,System.String)">
+            <summary>
+            The do get instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="key">
+            The key.
+            </param>
+            <returns>
+            An instance of the type registered on the interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="serviceType"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.ServiceLocatorAdapter.DoGetAllInstances(System.Type)">
+            <summary>
+            The do get all instances.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <returns>
+            An instance of the type registered on the interface. 
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="serviceType"/> is <c>null</c>.
+            </exception>
+        </member>
+    </members>
+</doc>
