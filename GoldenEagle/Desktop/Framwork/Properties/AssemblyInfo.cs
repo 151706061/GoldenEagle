@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GoldenEagle.Desktop.Framwork")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("microsoft")]
+[assembly: AssemblyCompany("GoldenEagle")]
 [assembly: AssemblyProduct("GoldenEagle.Desktop.Framwork")]
-[assembly: AssemblyCopyright("Copyright © microsoft 2013")]
+[assembly: AssemblyCopyright("Copyright © GoldenEagle 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

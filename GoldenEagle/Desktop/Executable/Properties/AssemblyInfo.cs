@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Executable")]
+[assembly: AssemblyTitle("GoldenEagle.Desktop.Executable")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("microsoft")]
-[assembly: AssemblyProduct("Executable")]
-[assembly: AssemblyCopyright("Copyright © microsoft 2013")]
+[assembly: AssemblyCompany("GoldenEagle")]
+[assembly: AssemblyProduct("GoldenEagle.Desktop.Executable")]
+[assembly: AssemblyCopyright("Copyright © GoldenEagle 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9ac75172-2384-4cfa-a7fa-5e472e6a5ea4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="93703425-8752-4741-9232-690c6467cd9c" name="Comment1">
+      <body>界面布局，实际是一个树形结构，每一个UI控件，都是一个树的节点，通过这个树可以把界面布局信息以xml文件的形式导出保存，也可以通过xml文件导入，构造这个UI布局。
+
+好处：
+
+1、可以根据设备类型构建排版布局
+2、可以保存打印排版布局，为集中Dicom打印做准备。</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="f1c5c0d7-4313-45e9-9215-6e96b5ea4162" name="UILayer" />
+    <layer Id="59b3aa9d-3aa8-4ccf-ab4d-27075c7076d6" name="TreeDataLayer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="04993b8f-c6e0-4e9e-bbeb-91d723eb74fe" direction="Bidirectional">
+          <layerMoniker Id="f1c5c0d7-4313-45e9-9215-6e96b5ea4162" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

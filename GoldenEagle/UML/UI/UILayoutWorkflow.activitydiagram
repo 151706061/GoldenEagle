@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="8ddfd41f-a34b-46d1-b45d-66561bcf0129" name="UI显示布局过程" linkedPackageId="961604d5-fbfd-41ee-9f9d-b18100c48336" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="a4ab3d7f-41e3-43f9-92ea-a94a81d64bc9">
+      <elementDefinition Id="2a3aaf72-a4c1-443c-b7a2-cdb25592f785" />
+      <body>默认布局</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="2cccf8f2-e45f-4819-97d4-4e430224c238" LastKnownName="Decision1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="5070622f-2d83-4543-9317-a4dba32e64ac">
+      <elementDefinition Id="2d862de6-522e-4a08-bec9-d070778507ad" />
+      <body>显示UI布局</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="65173ef6-09af-483f-be99-e18aabc54668" LastKnownName="ActivityFinal1" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="d0769825-c071-4502-a9b0-fd2c642c4b81">
+      <profileInstance Id="33c7bcf5-54c5-44e1-aa71-fd9adaec3b9e" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c91a9459-79f2-4f5e-8017-e8069c08322e">
+      <profileInstance Id="6b34ef4b-958f-4c89-b1c9-55b20ab32585" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="b81a81b7-4439-4799-8fde-1facab6cf3c7" name="UI显示布局过程" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="4c1eb4f1-7c95-42f1-ac0a-979c3bfe069c" />
+        <nodes>
+          <initialNode Id="98751dd5-3359-4441-a187-049e45603d10" name="Initial1" isLeaf="false">
+            <elementDefinition Id="9364d175-098f-4dfa-a876-70ad255d7429" />
+            <flowNodeTargets>
+              <controlFlow Id="e6515083-0733-42c8-b276-a5ca4d9bfb0f" isLeaf="false">
+                <opaqueActionMoniker Id="a6e41fbc-8172-4fb4-baab-e5ceec0900d1" LastKnownName="启动系统" />
+                <elementDefinition Id="dbded031-54a7-4cbb-a04c-253e3966a630" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="a6e41fbc-8172-4fb4-baab-e5ceec0900d1" name="启动系统" isLeaf="false">
+            <elementDefinition Id="abbcfad8-05f1-4a15-8c3a-aac3bd09e8d3" />
+            <flowNodeTargets>
+              <controlFlow Id="1d8ad451-ed3d-4237-8e24-e4f4e231be59" isLeaf="false">
+                <decisionNodeMoniker Id="2cccf8f2-e45f-4819-97d4-4e430224c238" LastKnownName="Decision1" />
+                <elementDefinition Id="f96e648e-2b6b-4ca7-b7c3-b0d4f0108e28" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="2cccf8f2-e45f-4819-97d4-4e430224c238" name="Decision1" isLeaf="false">
+            <elementDefinition Id="933fbe86-9b72-4526-9ecd-3988d7eab453" />
+            <flowNodeTargets>
+              <controlFlow Id="6a397550-36a7-4c18-baa8-fb6d5453ad7e" isLeaf="false">
+                <callOperationActionMoniker Id="c66417c1-d717-41d1-a28d-729f25c4fd5f" LastKnownName="LayoutDefault" />
+                <elementDefinition Id="5ecdd3e8-ae17-44fc-8833-972a2ce8a6f2" />
+              </controlFlow>
+              <controlFlow Id="3dc36c74-7500-4ee0-8818-62404c8a239f" isLeaf="false">
+                <callOperationActionMoniker Id="b2b50588-395e-4d6c-a3cc-b4db9df91e9d" LastKnownName="LayoutByXml" />
+                <elementDefinition Id="8babac5e-2098-47ba-a727-ebab5af8841b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode Id="65173ef6-09af-483f-be99-e18aabc54668" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="9da9cb86-0115-446c-86ea-e9e8ac07c6d2" />
+          </activityFinalNode>
+          <callOperationAction Id="c66417c1-d717-41d1-a28d-729f25c4fd5f" name="LayoutDefault" isLeaf="false">
+            <elementDefinition Id="259f1e34-79b8-4592-830d-83614fca44ee" />
+            <flowNodeTargets>
+              <controlFlow Id="d884a479-60a3-49bb-8ee0-f5dc5f872590" isLeaf="false">
+                <activityFinalNodeMoniker Id="65173ef6-09af-483f-be99-e18aabc54668" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="3a3b072a-5ad2-48b7-8cc7-eaef8a879864" />
+              </controlFlow>
+            </flowNodeTargets>
+          </callOperationAction>
+          <callOperationAction Id="16dec532-ec47-4b39-a887-04d2750425e9" name="LoadXmlByModality" isLeaf="false">
+            <elementDefinition Id="39909b07-4a39-4a61-8599-77a0828cc925" />
+            <objectFlowTargets>
+              <objectFlow Id="a6a51637-6a47-4605-9f85-55f43eb91d2f" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="3365062b-33ce-4d08-8716-55181ea0dc17" LastKnownName="XML" />
+                <elementDefinition Id="b1b642cb-d5e4-4073-ac1b-78e70035df2b" />
+              </objectFlow>
+            </objectFlowTargets>
+            <pins>
+              <callOperationActionHasTarget>
+                <inputPin Id="2078df53-ce64-4b25-b8ea-370720099115" name="Modality" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="73eb46c9-502b-43f7-8eb9-0559c2f4194e" />
+                  <upperBound>
+                    <literalInteger Id="fca79173-f4f6-4b22-b211-103cf63c2a62" name="2147483647" value="2147483647">
+                      <elementDefinition Id="874ed75d-e2e2-4584-b63e-3cfdf4320416" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </callOperationActionHasTarget>
+            </pins>
+          </callOperationAction>
+          <callOperationAction Id="b2b50588-395e-4d6c-a3cc-b4db9df91e9d" name="LayoutByXml" isLeaf="false">
+            <elementDefinition Id="933012d2-abb5-4c68-8216-028c7cd0e3cf" />
+            <flowNodeTargets>
+              <controlFlow Id="392bebfc-3999-44c3-b88c-e8bff2fbff64" isLeaf="false">
+                <activityFinalNodeMoniker Id="65173ef6-09af-483f-be99-e18aabc54668" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="e4372cc5-0d9f-40c3-b783-083aac5cc6f2" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <callOperationActionHasTarget>
+                <inputPin Id="3365062b-33ce-4d08-8716-55181ea0dc17" name="XML" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="c745d07c-332c-4188-8c40-3ac52ea9b57c" />
+                  <upperBound>
+                    <literalInteger Id="bdb2d441-229b-4dcf-9e3d-07575d097214" name="2147483647" value="2147483647">
+                      <elementDefinition Id="4e3af1c2-0a1d-4acc-9587-504de23dfec6" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </callOperationActionHasTarget>
+            </pins>
+          </callOperationAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="961604d5-fbfd-41ee-9f9d-b18100c48336" name="UML">
+    <elementDefinition Id="9ccf6a1e-3d43-48e4-b8bc-00580d854c04" />
+  </package>
+</activityRootModel>

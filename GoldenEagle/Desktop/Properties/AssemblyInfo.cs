@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Desktop")]
+[assembly: AssemblyTitle("GoldenEagle.Desktop")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("microsoft")]
-[assembly: AssemblyProduct("Desktop")]
-[assembly: AssemblyCopyright("Copyright © microsoft 2013")]
+[assembly: AssemblyCompany("GoldenEagle")]
+[assembly: AssemblyProduct("GoldenEagle.Desktop")]
+[assembly: AssemblyCopyright("Copyright © GoldenEagle 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

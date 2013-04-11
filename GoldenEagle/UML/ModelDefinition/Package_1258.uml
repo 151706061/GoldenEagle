@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b742359e-4bcd-4fb2-bf0d-3c897a1a1938"
+  name="ImageViewUI" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="08fec0e8-1b3f-4e08-a4a3-655f77656181"
+        name="WorkSpace"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="a8a45a9b-dc7e-4863-b833-cf2d45810784">
+            <interfaceMoniker
+              Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+              LastKnownName="INode"
+              LastKnownLocation="Package_0952.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ca394a41-62db-4abd-ba82-3ab62a4b6b44"
+            name="ToXmlElement"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a849bd18-fb80-4a33-b9bc-8090a22c5e18"
+                  name="XmlDocument doc"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="cf46ee4e-b5bd-40dd-89c8-4fb9b3586f70"
+            name="FromXmlElement"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8ef9d8b9-6593-445e-8e96-79c1ec449fde"
+                  name="XmlElement element"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="910b6723-22f2-4ca4-bf72-c83bd14bb065"
+        name="IImageBox"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c8f6964d-a3b5-45bc-8bcb-02d72cea0185"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+              LastKnownName="INode"
+              LastKnownLocation="Package_0952.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperations>
+          <operation
+            Id="37d6b849-d1a9-4514-8d5f-2924ca8357d9"
+            name="SplitTile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9d0cb03b-e5b8-42ec-a105-b8cd4d6edf7c"
+            name="MergeTiles"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="e01a12bc-56fe-4ed9-95ed-b9626ed36263"
+        name="ITile"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="663755d2-af38-4b11-847c-fac456dee85a"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+              LastKnownName="INode"
+              LastKnownLocation="Package_0952.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="ea2be1fd-f729-408a-97d2-a4ebc18dc695"
+        name="WorkSpacs"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="b4f84310-23a8-4412-8f1e-e3d57cb1bdd2"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+              LastKnownName="INode"
+              LastKnownLocation="Package_0952.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

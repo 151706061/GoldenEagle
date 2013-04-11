@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="7af12af9-eef5-4b9a-8247-cf9a0a828893"
+  name="Desktop.Tree" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="737c95ba-3d6e-4a0f-8fb6-d049bc64cfbb"
+        name="ITree"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="3de2bfc6-3449-4a09-9857-aa5c23e4c4e5"
+            name="Root"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+                LastKnownName="INode"
+                LastKnownLocation="Package_0952.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="932d638c-9bad-43a2-ab7f-2abd2d57fdcd"
+            name="Export"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2318bc98-b07a-4736-95e3-3580613fee5b"
+            name="Import"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="077f814f-fcee-4d3e-b6e1-039be25e2443"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="6b4434b7-403b-4f11-a0d9-6f77795c695d"
+        name="INode"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="5aa298f7-8a46-4400-93c7-9f59b48b208c"
+            name="Items"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="425a7e1a-1e33-4e7a-9263-53dfc5492300"
+                LastKnownName="IItemCollection"
+                LastKnownLocation="Package_0952.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="eef3478f-b82e-4576-bfdd-9a13085acc0b"
+            name="ItemType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="3aebd7c8-bea3-4166-a763-b025b29c97b1"
+                LastKnownName="ItemTypes"
+                LastKnownLocation="Package_0952.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="88832561-a079-4756-9991-10cf22b686ea"
+            name="Isleaf"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="8d8b7e24-8a0c-49c0-9210-8ea1efee0856"
+            name="ToXmlElement"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39dad9fa-e411-4c23-ae99-b8f30151ce60"
+                  name="XmlDocument doc"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="33073b99-68ec-41e5-8099-5922734d3a32"
+            name="FromXmlElement"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a73672d8-066d-41e0-8125-a1f30e3b38ad"
+                  name="XmlElement element"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="425a7e1a-1e33-4e7a-9263-53dfc5492300"
+        name="IItemCollection"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="efa52286-f391-4ee9-99c0-080c90686a19"
+            name="Items"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="3aebd7c8-bea3-4166-a763-b025b29c97b1"
+        name="ItemTypes"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="5f8048fe-fbf9-4893-8e04-b0ff7d8fda24"
+            name="WorkSpace" />
+          <enumerationLiteral
+            Id="601bb5d7-e9fa-4ce3-80ca-69142d34982b"
+            name="ImageBox" />
+          <enumerationLiteral
+            Id="28103e63-f959-4840-b2e3-360c04d6d47a"
+            name="Tile" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

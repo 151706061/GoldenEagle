@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerDiagram dslVersion="1.0.0.0" Id="bdfdc95b-534e-43b7-8568-43a3b52a8bbd" absoluteBounds="0, 0, 11, 8.5" name="UILayerDiagram">
+  <layerModelMoniker Id="9ac75172-2384-4cfa-a7fa-5e472e6a5ea4" />
+  <nestedChildShapes>
+    <layerShape Id="d868e99e-2e0a-43d5-935c-7cf5bf6b780f" absoluteBounds="3.75, 0.75, 1.375, 0.625" customColor="161, 199, 231">
+      <layerMoniker Id="f1c5c0d7-4313-45e9-9215-6e96b5ea4162" />
+    </layerShape>
+    <layerShape Id="4683d343-0e73-4af2-b593-f414e2b7364a" absoluteBounds="1, 0.75, 1.625, 0.625" customColor="161, 199, 231">
+      <layerMoniker Id="59b3aa9d-3aa8-4ccf-ab4d-27075c7076d6" />
+    </layerShape>
+    <dependencyConnector edgePoints="[(2.625 : 1.0625); (3.75 : 1.0625)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110">
+      <dependencyFromLayerToLayerMoniker Id="04993b8f-c6e0-4e9e-bbeb-91d723eb74fe" />
+      <relativeChildShapes />
+      <nodes>
+        <layerShapeMoniker Id="4683d343-0e73-4af2-b593-f414e2b7364a" />
+        <layerShapeMoniker Id="d868e99e-2e0a-43d5-935c-7cf5bf6b780f" />
+      </nodes>
+    </dependencyConnector>
+    <commentShape Id="9e524ab5-c457-4fbb-8ff6-d8af108a46bf" absoluteBounds="1, 1.5, 4.125, 1.5" customColor="255, 255, 204">
+      <commentMoniker Id="93703425-8752-4741-9232-690c6467cd9c" />
+      <relativeChildShapes />
+    </commentShape>
+  </nestedChildShapes>
+</layerDiagram>

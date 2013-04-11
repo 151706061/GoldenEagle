@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="9ccf6a1e-3d43-48e4-b8bc-00580d854c04"
+  name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="6001b98b-f0ca-4bc3-8d1f-37c62d0c2f0a">
+      <body>XML信息</body>
+      <annotatedElements>
+        <commentMoniker
+          Id="2c4dfd1d-a85c-4ba6-975b-cb89fe2452d1"
+          LastKnownLocation="UML.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="2c4dfd1d-a85c-4ba6-975b-cb89fe2452d1">
+      <body>UI布局</body>
+    </comment>
+    <comment
+      Id="222908f5-afe1-443a-9a0a-e134de1e9752">
+      <body>根据保存的xml信息，布局界面</body>
+    </comment>
+    <comment
+      Id="2a3aaf72-a4c1-443c-b7a2-cdb25592f785">
+      <body>默认布局</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="933fbe86-9b72-4526-9ecd-3988d7eab453"
+          LastKnownName="Decision1"
+          LastKnownLocation="UML.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="2d862de6-522e-4a08-bec9-d070778507ad">
+      <body>显示UI布局</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker
+          Id="9da9cb86-0115-446c-86ea-e9e8ac07c6d2"
+          LastKnownName="ActivityFinal1"
+          LastKnownLocation="UML.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7af12af9-eef5-4b9a-8247-cf9a0a828893"
+        LastKnownName="Desktop.Tree"
+        LastKnownLocation="Package_0952.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b742359e-4bcd-4fb2-bf0d-3c897a1a1938"
+        LastKnownName="ImageViewUI"
+        LastKnownLocation="Package_1258.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="54e94294-f2ad-42b1-8f43-e88d5ff76fca"
+        name="用户"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="c339feff-a151-43b3-8261-eec004f65a9f"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="65e38285-2a14-41a5-bc66-798fa9db411a"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5571ae36-1151-494f-b457-c8a785dff66d"
+        name="UseCase2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="54881745-bdc7-4114-bd53-772526d59871"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4dd60578-b1f9-4e54-8b9c-f6a41eb2a8a1"
+        name="启动系统"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bec10a63-599f-4cb8-ae48-8e109fd23d9d"
+        name="推出系统"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="9e418e6d-fec7-4631-8976-e6eb49c7e82a"
+        name="Subsystem2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="4c1eb4f1-7c95-42f1-ac0a-979c3bfe069c"
+        name="UI显示布局过程"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="9364d175-098f-4dfa-a876-70ad255d7429"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dbded031-54a7-4cbb-a04c-253e3966a630"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="abbcfad8-05f1-4a15-8c3a-aac3bd09e8d3"
+                  LastKnownName="启动系统"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="abbcfad8-05f1-4a15-8c3a-aac3bd09e8d3"
+            name="启动系统"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f96e648e-2b6b-4ca7-b7c3-b0d4f0108e28"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="933fbe86-9b72-4526-9ecd-3988d7eab453"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="933fbe86-9b72-4526-9ecd-3988d7eab453"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5ecdd3e8-ae17-44fc-8833-972a2ce8a6f2"
+                isLeaf="false">
+                <callOperationActionMoniker
+                  Id="259f1e34-79b8-4592-830d-83614fca44ee"
+                  LastKnownName="LayoutDefault"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8babac5e-2098-47ba-a727-ebab5af8841b"
+                isLeaf="false">
+                <callOperationActionMoniker
+                  Id="933012d2-abb5-4c68-8216-028c7cd0e3cf"
+                  LastKnownName="LayoutByXml"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="9da9cb86-0115-446c-86ea-e9e8ac07c6d2"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <callOperationAction
+            Id="259f1e34-79b8-4592-830d-83614fca44ee"
+            name="LayoutDefault"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3a3b072a-5ad2-48b7-8cc7-eaef8a879864"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9da9cb86-0115-446c-86ea-e9e8ac07c6d2"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </callOperationAction>
+          <callOperationAction
+            Id="39909b07-4a39-4a61-8599-77a0828cc925"
+            name="LoadXmlByModality"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="b1b642cb-d5e4-4073-ac1b-78e70035df2b"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="c745d07c-332c-4188-8c40-3ac52ea9b57c"
+                  LastKnownName="XML"
+                  LastKnownLocation="UML.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+            <pins>
+              <callOperationActionHasTarget>
+                <inputPin
+                  Id="73eb46c9-502b-43f7-8eb9-0559c2f4194e"
+                  name="Modality"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="874ed75d-e2e2-4584-b63e-3cfdf4320416"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </callOperationActionHasTarget>
+            </pins>
+          </callOperationAction>
+          <callOperationAction
+            Id="933012d2-abb5-4c68-8216-028c7cd0e3cf"
+            name="LayoutByXml"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e4372cc5-0d9f-40c3-b783-083aac5cc6f2"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9da9cb86-0115-446c-86ea-e9e8ac07c6d2"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <callOperationActionHasTarget>
+                <inputPin
+                  Id="c745d07c-332c-4188-8c40-3ac52ea9b57c"
+                  name="XML"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="4e3af1c2-0a1d-4acc-9587-504de23dfec6"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </callOperationActionHasTarget>
+            </pins>
+          </callOperationAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
